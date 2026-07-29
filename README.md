@@ -23,4 +23,10 @@ Si deseas clonar y probar este proyecto de manera local en tu máquina:
    ```bash
    git clone [https://github.com/Alf-Dev1906/AtrapaBono.git](https://github.com/Alf-Dev1906/AtrapaBono.git)
 
+   
+1 - Abre la carpeta del proyecto en tu editor de código favorito (ej. VS Code).
+
+2 - Abre el archivo index.html directamente o usa una extensión como Live Server para visualizarlo en tiempo real.
+
+Desarrollado por Danluis Santana
 
