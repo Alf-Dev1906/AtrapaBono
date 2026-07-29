@@ -12,10 +12,11 @@ Puedes ver el sitio funcionando en vivo aquí: [atrapabonoprueba.netlify.app](ht
 * **Netlify** para el despliegue continuo y hosting.
 
 ## 📁 Estructura del Proyecto
-* `index.html` - Página principal
-* `css/` - Hojas de estilo
-* `js/` - Lógica e interactividad
-* `assets/` - Imágenes y recursos gráficos
+```text
+├── index.html        # Página principal
+├── css/              # Hojas de estilo
+├── js/               # Lógica e interactividad
+└── assets/           # Imágenes y recursos gráficos
 
 * ## ⚙️ Configuración y despliegue local
 Si deseas clonar y probar este proyecto de manera local en tu máquina:
