@@ -17,3 +17,15 @@ Puedes ver el sitio funcionando en vivo aquí: [atrapabonoprueba.netlify.app](ht
 ├── css/              # Hojas de estilo
 ├── js/               # Lógica e interactividad
 └── assets/           # Imágenes y recursos gráficos
+⚙️ Configuración y despliegue local
+Si deseas clonar y probar este proyecto de manera local en tu máquina:
+
+Clona el repositorio:
+
+Bash
+git clone [https://github.com/Alf-Dev1906/AtrapaBono.git](https://github.com/Alf-Dev1906/AtrapaBono.git)
+Abre la carpeta del proyecto en tu editor de código favorito (ej. VS Code).
+
+Abre el archivo index.html directamente o usa una extensión como Live Server para visualizarlo en tiempo real.
+
+Desarrollado por Danluis Santana
