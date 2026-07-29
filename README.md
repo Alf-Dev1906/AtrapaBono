@@ -17,7 +17,8 @@ Puedes ver el sitio funcionando en vivo aquí: [atrapabonoprueba.netlify.app](ht
 ├── css/              # Hojas de estilo
 ├── js/               # Lógica e interactividad
 └── assets/           # Imágenes y recursos gráficos
-⚙️ Configuración y despliegue local
+
+##⚙️ Configuración y despliegue local
 Si deseas clonar y probar este proyecto de manera local en tu máquina:
 
 Clona el repositorio:
