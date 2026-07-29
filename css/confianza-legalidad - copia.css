@@ -1,0 +1,632 @@
+/* ========================================================== */
+/* ESTILOS ESPECÍFICOS PARA PÁGINA CONFIANZA Y LEGALIDAD */
+/* ========================================================== */
+
+/* Variables de colores específicas */
+:root {
+    --purple-primary: #8B5CF6;
+    --purple-light: #A78BFA;
+    --purple-dark: #7C3AED;
+    --gray-light: #F8FAFC;
+    --gray-medium: #64748B;
+    --gray-dark: #1E293B;
+    --white: #FFFFFF;
+    --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+}
+
+/* Sección Hero de Confianza */
+.confianza-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 120px 0 80px;
+    position: relative;
+}
+
+.confianza-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.confianza-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Header de la página */
+.confianza-header {
+    margin-bottom: 60px;
+}
+
+.confianza-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+/* Contenido principal */
+.confianza-main {
+    margin-bottom: 80px;
+}
+
+.main-claim {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.highlight-purple {
+    color: var(--purple-primary);
+    font-weight: 700;
+}
+
+.main-description {
+    font-size: 1.4rem;
+    color: var(--gray-medium);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.legal-info {
+    margin-bottom: 60px;
+}
+
+.legal-text {
+    font-size: 1.2rem;
+    color: var(--gray-medium);
+    line-height: 1.6;
+}
+
+/* Sección de operadores */
+.operators-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.operator-logo {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.operator-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.operator-img {
+    height: 40px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.coming-soon {
+    background: var(--gradient-purple);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.coming-text {
+    line-height: 1.4;
+}
+
+/* Sección de seguridad */
+.security-section {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 80px;
+}
+
+.security-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: 50px;
+}
+
+/* Grid de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--gray-light);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: #f1f5f9;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--purple-primary);
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--gray-medium);
+    font-weight: 500;
+}
+
+/* Detalles legales */
+.legal-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.legal-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.legal-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legal-card p {
+    color: var(--gray-medium);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Sección CTA */
+.cta-section {
+    background: var(--gradient-purple);
+    padding: 60px 40px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+
+.cta-section h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-button.large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button.primary.large {
+    background: white;
+    color: var(--purple-primary);
+}
+
+.cta-button.primary.large:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.secondary.large {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-button.secondary.large:hover {
+    background: white;
+    color: var(--purple-primary);
+    transform: translateY(-2px);
+}
+
+/* Footer mejorado */
+.main-footer {
+    background: var(--gray-dark);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--purple-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid #334155;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+.responsible-gaming {
+    font-weight: 600;
+    color: #fbbf24 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .confianza-title {
+        font-size: 2.5rem;
+    }
+    
+    .main-claim {
+        font-size: 2rem;
+    }
+    
+    .main-description {
+        font-size: 1.2rem;
+    }
+    
+    .operators-section {
+        gap: 30px;
+    }
+    
+    .security-section {
+        padding: 40px 20px;
+    }
+    
+    .security-title {
+        font-size: 1.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .legal-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-section {
+        padding: 40px 20px;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button.large {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .confianza-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .confianza-title {
+        font-size: 2rem;
+    }
+    
+    .main-claim {
+        font-size: 1.6rem;
+    }
+    
+    .operators-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* ===== NUEVOS ESTILOS PARA JUEGO RESPONSABLE ===== */
+
+.responsible-gaming-section {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+    padding: 80px 0;
+    margin: 60px 0;
+    border-radius: 20px;
+}
+
+.responsible-gaming-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.responsible-gaming-title {
+    font-size: 2.5rem;
+    color: #7F00FF;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.responsible-gaming-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.responsible-gaming-text p {
+    margin-bottom: 25px;
+}
+
+/* Promesa de juego seguro */
+.promise-section {
+    margin: 60px 0;
+}
+
+.promise-title {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.promise-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.promise-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 2px solid #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(127, 0, 255, 0.15);
+    border-color: #7F00FF;
+}
+
+.promise-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.promise-card h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.promise-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Herramientas de control */
+.gaming-tools {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    margin-top: 40px;
+}
+
+.gaming-tools h3 {
+    font-size: 1.8rem;
+    color: #7F00FF;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.tool-item {
+    text-align: center;
+    padding: 25px 15px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    border: 2px solid #e8eaff;
+    transition: all 0.3s ease;
+}
+
+.tool-item:hover {
+    background: white;
+    border-color: #7F00FF;
+    transform: translateY(-3px);
+}
+
+.tool-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #7F00FF, #9D4EDD);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.tool-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .responsible-gaming-section {
+        padding: 50px 20px;
+        margin: 40px 0;
+    }
+    
+    .responsible-gaming-title {
+        font-size: 2rem;
+    }
+    
+    .promise-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .gaming-tools {
+        padding: 30px 20px;
+    }
+    
+    .promise-card {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .responsible-gaming-title {
+        font-size: 1.8rem;
+    }
+    
+    .promise-title {
+        font-size: 1.6rem;
+    }
+}

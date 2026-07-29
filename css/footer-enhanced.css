@@ -1,0 +1,603 @@
+/* CSS Mejorado para el Footer */
+
+.legal-footer {
+  position: relative;
+  background: #043454 !important;
+  background-image: none !important;
+  background-blend-mode: normal !important;
+  isolation: isolate;
+  color: #ffffff;
+  padding: 40px 0 48px;
+  font-size: 0.95rem;
+}
+
+.legal-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #043454 !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.legal-footer .container { 
+  position: relative; 
+  z-index: 1; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Enlaces de footer */
+.legal-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-footer a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.legal-footer .footer-legal a {
+  color: #ffffff;
+}
+
+/* Logos en el footer - Disposición mejorada */
+.footer-logos {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  padding: 0 15px;
+  position: relative;
+  padding-right: 200px; /* Espacio para autoexclude */
+}
+
+/* Cada logo individual */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  flex-direction: row;
+  text-align: left;
+  height: 56px;
+  flex: 1 0 auto;
+  min-width: 150px;
+}
+
+/* Imágenes mejoradas */
+.footer-logo img {
+  height: 56px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1) brightness(1.8) contrast(1.1);
+  /* Mejora de la calidad */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.3s ease;
+}
+
+/* Enlaces en logos del footer */
+.footer-logo a {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo a:hover {
+  transform: scale(1.05);
+}
+
+/* Efectos hover sobre logos */
+.footer-logo:hover img {
+  transform: scale(1.05);
+}
+
+/* Ocultar TODOS los textos para logos */
+.footer-logo .caption,
+.footer-logo .sub {
+  display: none !important;
+}
+
+.footer-logo .caption {
+  font-weight: 600;
+}
+
+.footer-logo .sub {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+/* Estilos para +18 */
+.footer-logo:nth-child(3) {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo:nth-child(3) img {
+  height: 70px;
+  width: auto;
+}
+
+/* Estilos para logo Autoexclusión */
+.footer-logo:nth-child(5) img {
+  filter: none; /* Sin filtro para mantener los colores originales */
+  height: 56px;
+}
+
+/* Posicionar autoexclude en la esquina derecha */
+.footer-logo.autoexclude-right {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  flex: none;
+  min-width: auto;
+}
+
+.footer-logo.autoexclude-right img {
+  filter: none;
+  height: 56px;
+}
+
+/* Ocultar textos también del autoexclude */
+.footer-logo.autoexclude-right .caption,
+.footer-logo.autoexclude-right .sub {
+  display: none !important;
+}
+
+/* Separador */
+.footer-sep {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 35px 0 24px;
+  width: 100%;
+}
+
+/* Sección de logo principal */
+.follow-logo-wrap {
+  text-align: center;
+  margin: 15px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.follow-logo {
+  max-width: 100%;
+  height: auto;
+  width: 380px;
+  filter: brightness(1.1) contrast(1.05); /* Mejor visibilidad */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Sección de redes sociales */
+.follow-us-block {
+  text-align: center;
+  margin: 25px auto 15px auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.follow-title {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0 auto 8px auto;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.follow-subtitle {
+  color: #ffffff;
+  margin: 0 auto 20px auto;
+  font-size: 15px;
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Íconos de redes sociales */
+.social-icons-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.icon-social {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0 5px;
+}
+
+.icon-social img {
+  width: 25px;
+  height: 25px;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Aumentar tamaño de Facebook y LinkedIn para igualarlos con los demás */
+.icon-social[aria-label="Facebook"] img {
+  width: 35px;
+  height: 35px;
+}
+
+.icon-social[aria-label="LinkedIn"] img {
+  width: 37px;
+  height: 37px;
+}
+
+.icon-social:hover {
+  background: transparent;
+  transform: translateY(-3px);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+/* Advertencia de salud */
+.salud-text {
+  text-align: center;
+  color: #ffd700;
+  font-weight: 600;
+  margin: 15px 0;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+/* Sección legal */
+.footer-legal {
+  text-align: left;
+  margin-top: 20px;
+  padding: 0 15px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legal-title {
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.legal-description {
+  color: #ffffff;
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.legal-text {
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0 0 15px;
+  font-size: 13px;
+  background: none;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.legal-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.legal-text a {
+  color: #ffffff;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.legal-text a:hover {
+  opacity: 0.8;
+}
+
+.legal-text ul {
+  color: #ffffff;
+}
+
+.legal-text ul li {
+  color: #ffffff;
+}
+
+.legal-note {
+  color: #ffffff;
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.legal-note a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.legal-note a:hover {
+  opacity: 0.8;
+}
+
+/* Resaltado de elementos legales - SIN fondos de color */
+.legal-highlight {
+  background: transparent;
+  color: #ffffff;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  line-height: 1.75;
+  margin: 15px 0;
+  box-shadow: none;
+  font-size: 13px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.legal-mark {
+  background: transparent;
+  color: #ffffff;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+/* Espaciado específico para la segunda barra separadora (después del texto de salud) */
+.salud-text + .footer-sep {
+  margin: 25px 0 20px;
+}
+
+/* Copyright */
+.copyright-text {
+  text-align: center;
+  color: #ffffff;
+  margin: 30px 0 10px;
+  font-size: 13px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+  .footer-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 20px;
+    justify-content: center;
+    align-items: start;
+    padding: 0 10px;
+  }
+  
+  .footer-logo {
+    min-width: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    height: auto;
+    min-height: 60px;
+  }
+  
+  .footer-logo img {
+    height: 50px;
+    flex-shrink: 0;
+  }
+  
+  .footer-logo .caption,
+  .footer-logo .sub {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-logos {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .footer-logo {
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 50px;
+    gap: 10px;
+  }
+  
+  .footer-logo img {
+    height: 45px;
+  }
+  
+  /* Ajustar textos para que no se corten */
+  .footer-logo .caption {
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  
+  .footer-logo .sub {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  
+  /* Iconos sociales */
+  .icon-social {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .icon-social img {
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* Aumentar tamaño de Facebook y LinkedIn en tablet */
+  .icon-social[aria-label="Facebook"] img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .icon-social[aria-label="LinkedIn"] img {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .follow-logo {
+    width: 320px;
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-footer {
+    padding: 30px 0 40px;
+  }
+  
+  .footer-logos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .footer-logo {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+    min-height: auto;
+  }
+  
+  .footer-logo img {
+    height: 50px;
+    margin-bottom: 5px;
+  }
+  
+  /* Mostrar todos los textos en móvil */
+  .footer-logo .caption,
+  .footer-logo .sub {
+    display: block !important;
+    max-width: none;
+    white-space: normal;
+    text-overflow: none;
+    overflow: visible;
+    text-align: center;
+  }
+  
+  .footer-logo .caption {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  
+  .footer-logo .sub {
+    font-size: 0.7rem;
+    color: #ffffff;
+  }
+  
+  /* Redes sociales más compactas */
+  .social-icons-row {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .icon-social {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-social img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Aumentar tamaño de Facebook y LinkedIn en móvil */
+  .icon-social[aria-label="Facebook"] img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .icon-social[aria-label="LinkedIn"] img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .follow-us-block {
+    padding: 0 15px;
+    margin: 20px auto 10px;
+  }
+  
+  .follow-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  
+  .follow-subtitle {
+    font-size: 14px;
+    padding: 0;
+    line-height: 1.4;
+  }
+  
+  .follow-logo {
+    width: 260px;
+    max-width: 85%;
+  }
+  
+  .follow-logo-wrap {
+    padding: 10px 5px;
+    margin: 10px auto;
+  }
+  
+  /* Sección legal más compacta */
+  .footer-legal {
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .legal-highlight {
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+  }
+  
+  .legal-text {
+    font-size: 0.8rem;
+  }
+  
+  .legal-text ul {
+    padding-left: 15px;
+    text-align: left;
+  }
+}

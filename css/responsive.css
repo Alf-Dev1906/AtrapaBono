@@ -1,0 +1,656 @@
+/**
+ * css/responsive.css
+ * Mejoras específicas para responsive design y vista móvil
+ * Complementa a style.css con optimizaciones adicionales
+ */
+
+/* ============================================== */
+/* MEJORAS ESPECÍFICAS PARA MÓVIL */
+/* ============================================== */
+
+/* Viewport meta optimizado ya está en HTML */
+
+/* El botón hamburguesa usa 3 spans definidos en el HTML */
+/* Los estilos están en style.css - no sobrescribir aquí */
+
+/* Arreglar navegación para pantallas 1201px-1600px - Mostrar todos los links */
+@media (min-width: 1201px) and (max-width: 1600px) {
+  /* Ocultar hamburguesa EXCEPTO en 1200x800 que tiene su propio media query */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Ajustar navegación para mostrar todos los links con espacio optimizado */
+  .main-nav {
+    gap: 14px !important;
+    flex-wrap: nowrap !important;
+    margin-left: -40px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    background: transparent !important;
+  }
+  
+  .main-nav a,
+  .main-nav .nav-link {
+    font-size: 14px !important;
+    padding: 8px 8px !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+  }
+  
+  .main-nav .cta-button {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    display: inline-block !important;
+  }
+  
+  /* Forzar mostrar testimonios y dudas */
+  .main-header .main-nav .nav-link[href="#testimonios"],
+  .main-header .main-nav .nav-link[href="#dudas"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .header-content {
+    justify-content: flex-start !important;
+  }
+}
+
+/* Regla adicional para forzar visibilidad de todos los nav-links en pantallas grandes */
+@media (min-width: 1201px) {
+  .main-header .main-nav .nav-link {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .main-header .main-nav .nav-link[href="#testimonios"],
+  .main-header .main-nav .nav-link[href="#dudas"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Configuración limpia para 1200x800 - Solo logo y menú hamburguesa */
+@media (min-width: 1150px) and (max-width: 1250px) and (min-height: 750px) and (max-height: 850px) {
+  /* Mostrar SOLO el menú hamburguesa */
+  .mobile-menu-toggle {
+    display: flex !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 1001 !important;
+  }
+  
+  /* Configurar navegación como menú móvil */
+  .main-header .main-nav {
+    position: fixed !important;
+    top: 70px !important;
+    left: 16px !important;
+    right: 16px !important;
+    background: #ffffff !important;
+    border: 1px solid #eee !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15) !important;
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    z-index: 999 !important;
+    transform: translateY(-8px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  /* Mostrar menú cuando está abierto */
+  .main-header.nav-open .main-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Forzar todos los links visibles en el menú desplegable */
+  .main-header .main-nav .nav-link,
+  .main-header.nav-open .main-nav .nav-link {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 16px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    transition: background-color 0.3s ease !important;
+    text-decoration: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .main-header .main-nav .nav-link:hover,
+  .main-header.nav-open .main-nav .nav-link:hover {
+    background-color: #f5f5f5 !important;
+  }
+  
+  /* Botón Iniciar Sesión en el menú */
+  .main-header .main-nav .cta-button,
+  .main-header.nav-open .main-nav .cta-button {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 16px !important;
+    margin: 8px 0 0 0 !important;
+    text-align: center !important;
+    background: #fdbe02 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.3s ease !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .main-header .main-nav .cta-button:hover,
+  .main-header.nav-open .main-nav .cta-button:hover {
+    background: #e6a802 !important;
+  }
+}
+
+/* Mejoras para el menú móvil */
+@media (max-width: 768px) {
+  /* Asegurar que el menú móvil funcione correctamente */
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #7f00ff, #9d4edd);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  
+  .main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .main-nav .nav-link {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-align: center;
+    color: white !important;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  .main-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+}
+
+/* Mejoras para formularios en móvil */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+  
+  .form-input {
+    font-size: 16px; /* Evita zoom en iOS */
+    padding: 15px;
+  }
+  
+  .registration-form {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+  
+  .login-form {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+}
+
+/* Mejoras para el hero section en móvil */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 0 40px; /* Espacio para header fijo */
+    min-height: auto;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .hero-main-title {
+    font-size: clamp(2.2rem, 7vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.5;
+    margin-bottom: 25px;
+    font-style: italic;
+  }
+  
+  .hero-image-container {
+    order: -1; /* Imagen arriba en móvil */
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+  
+  .hero-image {
+    height: clamp(200px, 50vw, 300px);
+    border-radius: 16px;
+  }
+}
+
+/* Mejoras para secciones en móvil */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .benefits-grid,
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
+  .benefit-card,
+  .feature-card {
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+/* Mejoras para botones en móvil */
+@media (max-width: 768px) {
+  .cta-buttons-group {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  
+  .image-cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .image-cta-buttons .cta-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* ============================================== */
+/* MEJORAS PARA TABLETS */
+/* ============================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+  
+  .hero-content {
+    grid-template-columns: 55% 45%;
+    gap: 40px;
+  }
+  
+  .main-nav {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================== */
+/* MEJORAS PARA PANTALLAS GRANDES */
+/* ============================================== */
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main-nav {
+    gap: 25px;
+  }
+}
+
+/* ============================================== */
+/* MEJORAS DE ACCESIBILIDAD */
+/* ============================================== */
+
+/* Focus visible mejorado */
+.cta-button:focus-visible,
+.nav-link:focus-visible,
+.form-input:focus-visible {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Mejoras para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link para navegación por teclado */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ============================================== */
+/* MEJORAS DE RENDIMIENTO */
+/* ============================================== */
+
+/* Optimización para animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimización para pantallas táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .hover-effects {
+    display: none;
+  }
+  
+  .cta-button:hover,
+  .nav-link:hover {
+    transform: none;
+  }
+}
+
+/* ============================================== */
+/* MEJORAS ESPECÍFICAS PARA iOS */
+/* ============================================== */
+
+/* Evitar zoom en inputs en iOS */
+@supports (-webkit-touch-callout: none) {
+  .form-input {
+    font-size: 16px;
+  }
+}
+
+/* Mejoras para Safari */
+@supports (-webkit-appearance: none) {
+  .cta-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  .form-input {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+  }
+}
+
+/* ============================================== */
+/* MEJORAS PARA MODO OSCURO */
+/* ============================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e0e0e0;
+    --color-secondary: #2a2a2a;
+  }
+  
+  body {
+    background-color: #1a1a1a;
+    color: var(--color-text);
+  }
+  
+  .main-header {
+    background-color: #1a1a1a;
+    border-bottom-color: #333;
+  }
+  
+  .form-input {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: var(--color-text);
+  }
+}
+
+/* ============================================== */
+/* MEJORAS RESPONSIVE PARA DASHBOARD */
+/* ============================================== */
+
+/* Dashboard header responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 15px 0;
+  }
+  
+  .dashboard-header .header-content {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .user-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .nav-item {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  
+  .nav-item svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Stats grid responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+  
+  .stat-card {
+    padding: 20px 15px;
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Dashboard main content */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 20px 15px;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .subsection-title {
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    margin-bottom: 15px;
+  }
+  
+  .subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+/* Admin panel responsive */
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 15px;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .admin-tab {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+  
+  .admin-content {
+    padding: 20px 10px;
+  }
+  
+  .requests-table {
+    font-size: 0.9rem;
+  }
+  
+  .requests-table th,
+  .requests-table td {
+    padding: 8px 4px;
+  }
+}
+
+/* Table responsive */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  table {
+    min-width: 600px;
+  }
+  
+  th, td {
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header .logo {
+    font-size: 1.3rem;
+  }
+  
+  .user-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-item {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stats-grid {
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 15px 10px;
+  }
+}

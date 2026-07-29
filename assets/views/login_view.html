@@ -1,0 +1,321 @@
+<style>
+  .login-modern-container {
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #ffffff;
+  }
+
+  /* Lado izquierdo - Formulario */
+  .login-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    background: #ffffff;
+  }
+
+  .login-form-wrapper {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .login-logo {
+    width: 379.14px;
+    height: 205.56px;
+    margin-bottom: 24px;
+    margin-left: -40px;
+    display: block;
+  }
+
+  .login-title {
+    font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 200;
+    color: #fdbe02;
+    margin-bottom: 8px;
+    margin-left: 0;
+    line-height: 1.1;
+  }
+
+  .login-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .login-form .form-group {
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .login-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .login-form input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+
+  .password-toggle:hover {
+    color: #fdbe02;
+  }
+
+  .password-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .password-input-wrapper input {
+    padding-right: 48px;
+  }
+
+  .login-form input:focus {
+    outline: none;
+    border-color: #fdbe02;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(253, 190, 2, 0.1);
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #fdbe02;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  }
+
+  .login-btn:hover {
+    background: #e6a802;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(253, 190, 2, 0.3);
+  }
+
+  .login-footer {
+    text-align: center;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .login-footer a {
+    color: #fdbe02;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .login-footer a:hover {
+    color: #e6a802;
+    text-decoration: underline;
+  }
+
+  .login-footer-separator {
+    color: #666;
+    font-weight: 400;
+  }
+
+  /* Lado derecho - Carrusel de imágenes */
+  .login-right {
+    flex: 1;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  /* Carrusel vertical como en Quienes somos */
+  .login-carousel-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    height: 80.5vh;
+    max-height: 690px;
+    background: #ffffff;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  #loginBanner {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    border-radius: 18px;
+  }
+
+  .login-banner-track {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+  }
+
+  .login-banner-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .login-modern-container {
+      flex-direction: column;
+    }
+
+    .login-right {
+      display: none;
+    }
+
+    .login-left {
+      padding: 60px 20px;
+    }
+  }
+
+  #auth-message-area {
+    margin-bottom: 20px;
+  }
+
+  .alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .alert-error {
+    background: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+  }
+
+  .alert-success {
+    background: #efe;
+    color: #3c3;
+    border: 1px solid #cfc;
+  }
+</style>
+
+<section class="login-modern-container">
+  <!-- Lado izquierdo: Formulario -->
+  <div class="login-left">
+    <div class="login-form-wrapper">
+      <img src="assets/img/logos/LOGOTIPO_para-fondoblanco.png" alt="AtrapaBono" class="login-logo">
+      
+      <h2 class="login-title">Iniciar Sesión</h2>
+      <p class="login-subtitle">Ingresa tus credenciales para acceder a la plataforma.</p>
+
+      <div id="auth-message-area"></div>
+
+      <form id="login-form" class="login-form">
+        <div class="form-group">
+          <label for="login-email">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="login-email" 
+            name="email" 
+            placeholder="tu@email.com"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Contraseña</label>
+          <div class="password-input-wrapper">
+            <input 
+              type="password" 
+              id="login-password" 
+              name="password" 
+              placeholder="••••••••"
+            />
+            <button type="button" class="password-toggle" id="togglePassword" aria-label="Mostrar contraseña">
+              <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <svg id="eyeSlashIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="login-btn">Entrar</button>
+        
+        <div class="login-footer">
+          <a href="#" id="forgot-password-link">¿Olvidó su contraseña?</a>
+          <span class="login-footer-separator">|</span>
+          <a href="#" id="go-to-landing">Volver a Inicio</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lado derecho: Carrusel de imágenes -->
+  <div class="login-right">
+    <div class="login-carousel-container">
+      <div id="loginBanner">
+        <div class="login-banner-track" id="loginBannerTrack">
+          <img class="login-banner-slide"
+            src="assets/img/npc/secundario.png?v=20251103-01"
+            alt="Banner 1" />
+          <img class="login-banner-slide" 
+            src="assets/img/npc/Home_PRINCIPAL.png?v=20251030-01" 
+            alt="Banner 2" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

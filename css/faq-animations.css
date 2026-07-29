@@ -1,0 +1,246 @@
+/* Animaciones mejoradas para FAQ Accordion - Versión Estable */
+
+/* Animaciones suaves para el accordion */
+.faq-accordion details {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.faq-accordion details:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  border-color: rgba(253, 190, 2, 0.5);
+}
+
+/* Summary con mejores animaciones */
+.faq-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 22px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: linear-gradient(90deg, transparent 0%, transparent 100%);
+}
+
+.faq-accordion summary:hover {
+  background: linear-gradient(90deg, 
+    rgba(253, 190, 2, 0.05) 0%, 
+    rgba(127, 0, 255, 0.03) 100%);
+  color: #fdbe02;
+  padding-left: 26px;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron con animación mejorada */
+.faq-accordion summary .chevron {
+  font-size: 1.4rem;
+  color: #9ca3af;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(156, 163, 175, 0.1);
+}
+
+.faq-accordion details[open] summary .chevron {
+  transform: rotate(180deg) scale(1.1);
+  color: #fdbe02;
+  background: rgba(253, 190, 2, 0.15);
+}
+
+.faq-accordion summary:hover .chevron {
+  color: #fdbe02;
+  background: rgba(253, 190, 2, 0.2);
+  transform: scale(1.05);
+}
+
+.faq-accordion details[open] summary:hover .chevron {
+  transform: rotate(180deg) scale(1.15);
+}
+
+/* Animación del contenido simplificada */
+.faq-accordion .answer {
+  color: #374151;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  overflow: hidden;
+  /* Estado cerrado */
+  max-height: 0;
+  padding: 0 22px;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-accordion details[open] .answer {
+  /* Estado abierto */
+  max-height: 300px;
+  padding: 0 22px 20px;
+  opacity: 1;
+}
+
+/* Efecto de expansión simplificado */
+.faq-accordion details[open] {
+  border-color: rgba(253, 190, 2, 0.4);
+  box-shadow: 0 6px 20px rgba(253, 190, 2, 0.08);
+}
+
+.faq-accordion details[open] summary {
+  background: rgba(253, 190, 2, 0.05);
+  color: #fdbe02;
+  border-bottom: 1px solid rgba(253, 190, 2, 0.15);
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+/* Animaciones de entrada escalonada - simplificada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-accordion details {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.faq-accordion details:nth-child(1) { animation-delay: 0.05s; }
+.faq-accordion details:nth-child(2) { animation-delay: 0.1s; }
+.faq-accordion details:nth-child(3) { animation-delay: 0.15s; }
+.faq-accordion details:nth-child(4) { animation-delay: 0.2s; }
+.faq-accordion details:nth-child(5) { animation-delay: 0.25s; }
+.faq-accordion details:nth-child(6) { animation-delay: 0.3s; }
+
+/* Efectos adicionales para interactividad */
+.faq-accordion details::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #fdbe02, #7f00ff);
+  transform: scaleY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.faq-accordion details[open]::before {
+  transform: scaleY(1);
+}
+
+/* Efecto hover sin animación infinita */
+.faq-accordion details:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-2px) !important;
+  border-color: #fdbe02 !important;
+}
+
+.faq-accordion details[open]:hover {
+  box-shadow: 0 8px 25px rgba(253, 190, 2, 0.1), 0 0 0 1px rgba(253, 190, 2, 0.1) !important;
+  transform: translateY(0) !important;
+}
+
+/* Mejorar la tipografía del contenido */
+.faq-accordion .answer p {
+  margin: 0 0 12px 0;
+}
+
+.faq-accordion .answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive específico para FAQ */
+@media (max-width: 768px) {
+  .faq-accordion summary {
+    padding: 16px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .faq-accordion summary:hover {
+    padding-left: 22px;
+  }
+  
+  .faq-accordion .answer {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  
+  .faq-accordion details[open] .answer {
+    padding: 0 18px 18px;
+    max-height: 300px;
+  }
+  
+  .faq-accordion summary .chevron {
+    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-accordion summary {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+  
+  .faq-accordion summary:hover {
+    padding-left: 20px;
+  }
+  
+  .faq-accordion .answer {
+    font-size: 0.82rem;
+  }
+  
+  .faq-accordion details[open] .answer {
+    padding: 0 16px 16px;
+  }
+  
+  .faq-accordion details {
+    border-radius: 12px;
+  }
+}
+
+/* Modo oscuro compatibility */
+@media (prefers-color-scheme: dark) {
+  .faq-accordion details {
+    background: #1f2937;
+    border-color: #374151;
+  }
+  
+  .faq-accordion summary {
+    color: #f9fafb;
+  }
+  
+  .faq-accordion .answer {
+    color: #d1d5db;
+  }
+  
+  .faq-accordion details[open] {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+}

@@ -1,0 +1,278 @@
+/* ===== SECCIÓN VALES CANJEABLES ===== */
+
+.vouchers-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.vouchers-title {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.vouchers-title .points-needed {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.vouchers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.voucher-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.voucher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.voucher-card.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.voucher-card.disabled .voucher-content {
+  background: linear-gradient(135deg, #9e9e9e 0%, #757575 100%) !important;
+}
+
+.voucher-card.disabled .voucher-ribbon {
+  background: #616161 !important;
+  box-shadow: 0 2px 8px rgba(97, 97, 97, 0.4) !important;
+}
+
+.voucher-card.disabled .voucher-value {
+  color: #f5f5f5 !important;
+  opacity: 0.8;
+}
+
+.voucher-card.disabled .voucher-footer span {
+  color: #f5f5f5 !important;
+}
+
+.voucher-card.disabled .voucher-footer svg {
+  stroke: #f5f5f5 !important;
+}
+
+.voucher-card.disabled .voucher-logo-bg {
+  color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.voucher-card.disabled .voucher-btn {
+  background: #e0e0e0 !important;
+  color: #9e9e9e !important;
+  border-color: #9e9e9e !important;
+}
+
+.voucher-card.disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ribbon esquina superior derecha */
+.voucher-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #dc2626;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 0 16px 0 16px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 85px;
+  text-align: center;
+  line-height: normal;
+  gap: 2px;
+}
+
+.ribbon-points {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.ribbon-points strong {
+  font-weight: 900;
+  display: block;
+}
+
+.ribbon-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: lowercase;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.ribbon-value {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Contenido de la tarjeta */
+.voucher-content {
+  background: linear-gradient(135deg, #fdbe02 0%, #e5ab02 100%);
+  padding: 40px 20px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  line-height: normal;
+  flex-grow: 1;
+}
+
+/* Logo de fondo (marca de agua) */
+.voucher-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* Valor del vale */
+.voucher-value {
+  font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+  margin: 20px 0;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer de la tarjeta */
+.voucher-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  z-index: 2;
+  position: relative;
+  margin-top: 20px;
+}
+
+.voucher-footer svg {
+  flex-shrink: 0;
+  stroke: #333;
+}
+
+.voucher-footer span {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-align: left;
+  color: #333;
+}
+
+/* Botón Canjear */
+.voucher-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  background: white;
+  color: #999;
+  border: 2px solid #fdbe02;
+  border-radius: 0 0 16px 16px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  margin: 0;
+  border-top: none;
+  flex-shrink: 0;
+}
+
+.voucher-btn.active {
+  background: #fdbe02;
+  color: #333;
+  border-color: #fdbe02;
+  cursor: pointer;
+}
+
+.voucher-btn.active:hover {
+  background: #e5ab02;
+  border-color: #e5ab02;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vouchers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .vouchers-title {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+  
+  .vouchers-title .points-needed {
+    font-size: 24px;
+  }
+  
+  .voucher-value {
+    font-size: 60px;
+  }
+  
+  .voucher-logo-bg {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vouchers-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .voucher-content {
+    min-height: 240px;
+  }
+}

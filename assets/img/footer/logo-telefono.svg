@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 40" role="img" aria-label="Línea gratuita 0800-444-4000">
+  <g fill="#000">
+    <path d="M22 8c3 0 5 2 5 5v2c0 1-.6 2-1.6 2.5l-3.2 1.4a20 20 0 0010 10l1.4-3.2c.4-1 1.4-1.6 2.5-1.6h2c3 0 5 2 5 5v3c0 2-1.6 3.6-3.6 3.6h-2.8C25 36 12 23 12 9.6V7c0-2 1.6-3.6 3.6-3.6H19c1.7 0 3 1.3 3 3v1.6z"/>
+    <text x="50" y="25" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">0800-444-4000</text>
+  </g>
+</svg>

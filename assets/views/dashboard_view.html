@@ -1,0 +1,378 @@
+<header class="dashboard-header">
+    <div class="container header-content">
+        <h1 class="logo" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; display: flex; align-items: center; gap: 8px;">
+            <img src="assets/img/logos/LOGOTIPO_para-fondoblanco.png" alt="Atrapabono" style="width: 329.69px; height: 178.75px;" />
+        </h1>
+        
+        <!-- Botón hamburguesa para móviles -->
+        <button class="dashboard-menu-toggle" id="dashboardMenuToggle" aria-label="Abrir menú" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="user-nav">
+            <a href="#" id="link-user-panel" class="nav-item" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                Panel de Usuario
+            </a>
+            <a href="#" id="link-admin-panel" class="nav-item" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                Panel de Administrador
+            </a>
+            <a href="#" id="link-payment-data" class="nav-item nav-item-disabled" style="opacity: 0.5; cursor: not-allowed;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                Datos para reservas
+            </a>
+            <a href="#" id="link-profile" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Mi Perfil
+            </a>
+            <a href="#" id="link-security" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                Seguridad
+            </a>
+            <a href="#" id="link-logout-dashboard" class="btn btn-secondary btn-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                Salir
+            </a>
+        </nav>
+    </div>
+</header>
+
+<main class="dashboard-main container">
+    <h2 class="section-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;">Dashboard</h2>
+    <p class="subtitle" style="font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 18px; color: #666;">¡Bienvenido de nuevo, <strong id="user-display-name" style="color: #333;"></strong>!</p>
+
+    <h3 class="subsection-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: 200;">Estadísticas Clave</h3>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span id="stat-total-bonos" class="stat-value">...</span>
+            <span class="stat-label">Bonos Totales Asignados</span>
+        </div>
+
+        <div class="stat-card">
+            <span id="stat-bonos-redeemed" class="stat-value">...</span>
+            <span class="stat-label">Bonos Canjeados (Últimos 30 días)</span>
+        </div>
+
+        <div class="stat-card">
+            <span id="stat-avg-campaign-value" class="stat-value">...</span>
+            <span class="stat-label">Valor Promedio de Campaña (USD)</span>
+        </div>
+
+        <div class="stat-card">
+            <span id="stat-conversion-rate" class="stat-value">...</span>
+            <span class="stat-label">Tasa de Conversión (%)</span>
+        </div>
+    </div>
+
+    <h3 class="subsection-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: 200;">Movimientos Recientes</h3>
+
+    <div class="table-responsive" id="transactions-table-container">
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Monto (Bonos)</th>
+                </tr>
+            </thead>
+            <tbody id="transactions-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="no-transactions-message" class="empty-state-message" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="empty-icon">
+            <line x1="12" x2="12" y1="2" y2="22"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <p class="empty-title">No hay movimientos recientes</p>
+        <p class="empty-subtitle">Tus transacciones aparecerán aquí cuando comiences a acumular puntos</p>
+    </div>
+
+    <!-- SECCIÓN ATRAPAPUNTOS -->
+    <h3 class="subsection-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: 200; margin-top: 50px;">Atrapapuntos</h3>
+    
+    <div class="atrapapuntos-section">
+        <!-- Contenedores de puntos -->
+        <div class="points-grid">
+            <div class="points-card waiting">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="points-icon">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <div class="points-value" id="points-waiting">0</div>
+                <div class="points-label">Puntos en espera</div>
+            </div>
+            
+            <div class="points-card accumulated">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="points-icon">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <div class="points-value" id="points-accumulated">0</div>
+                <div class="points-label">Puntos acumulados</div>
+            </div>
+        </div>
+        
+        <!-- Barra de progreso con checkpoints -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <div class="progress-indicator">
+                    <span class="indicator-label">¡ESTÁS AQUÍ!</span>
+                    <div class="indicator-arrow"></div>
+                </div>
+            </div>
+            
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="checkpoints">
+                    <div class="checkpoint" data-points="927">
+                        <div class="checkpoint-info">
+                            <div class="checkpoint-points">927</div>
+                            <div class="checkpoint-reward">Vale<br>por<br>$1.000</div>
+                            <div class="checkpoint-arrow"></div>
+                        </div>
+                        <div class="checkpoint-dot"></div>
+                    </div>
+                    <div class="checkpoint" data-points="9297">
+                        <div class="checkpoint-info">
+                            <div class="checkpoint-points">9.297</div>
+                            <div class="checkpoint-reward">Vale<br>por<br>$10.000</div>
+                            <div class="checkpoint-arrow"></div>
+                        </div>
+                        <div class="checkpoint-dot"></div>
+                    </div>
+                    <div class="checkpoint" data-points="46488">
+                        <div class="checkpoint-info">
+                            <div class="checkpoint-points">46.488</div>
+                            <div class="checkpoint-reward">Vale<br>por<br>$50.000</div>
+                            <div class="checkpoint-arrow"></div>
+                        </div>
+                        <div class="checkpoint-dot"></div>
+                    </div>
+                    <div class="checkpoint" data-points="92976">
+                        <div class="checkpoint-info">
+                            <div class="checkpoint-points">92.976</div>
+                            <div class="checkpoint-reward">Vale<br>por<br>$100.000</div>
+                            <div class="checkpoint-arrow"></div>
+                        </div>
+                        <div class="checkpoint-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN JUEGO RESPONSABLE -->
+    <div class="responsible-gaming-section">
+        <div class="responsible-gaming-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield-icon">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M12 8v4"/>
+                <path d="M12 16h.01"/>
+            </svg>
+            <h3 class="subsection-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: 200; margin: 0;">Juego Responsable</h3>
+        </div>
+        
+        <div class="responsible-gaming-content">
+            <div class="points-terms-card">
+                <p class="points-intro">Recordá que los puntos se calculan según tu actividad dentro de la plataforma.</p>
+                
+                <h4 class="terms-subtitle">Asignación de puntos:</h4>
+                
+                <ul class="points-rules">
+                    <li>
+                        <strong>Cashback:</strong> por cada $10.000 de cashback obtenido (cada 48 horas), recibís 800 puntos.
+                    </li>
+                    <li>
+                        <strong>Primer depósito:</strong> al realizar tu primer depósito, obtenés 300 puntos.
+                    </li>
+                    <li>
+                        <strong>Registro:</strong> por registrarte en la plataforma, ganás 300 puntos.
+                    </li>
+                    <li>
+                        <strong>Recomendar amigos:</strong> por cada amigo que se registre desde tu enlace, sumás 200 puntos.
+                    </li>
+                    <li>
+                        <strong>Actividad mensual:</strong> si permanecés activo durante el mes, se te acreditan 1.000 puntos adicionales.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="limits-controls">
+                <div class="current-limit-display">
+                    <p class="limit-status" id="limit-status">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span id="limit-status-text">Sin límite establecido</span>
+                    </p>
+                    <div class="limit-details" id="limit-details" style="display: none;">
+                        <span class="limit-value" id="limit-value-display">0</span> puntos <span id="limit-period-display">diarios</span>
+                    </div>
+                </div>
+                
+                <button class="btn-set-limits" id="btn-set-limits">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    Establecer Límites
+                </button>
+                
+                <p class="responsible-message">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Te avisaremos si necesitas un descanso y estaremos atentos a que no excedas tu juego
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN VALES CANJEABLES -->
+    <div class="vouchers-section">
+        <h3 class="vouchers-title" id="vouchers-title">
+            ¡Te faltan <span class="points-needed" id="points-needed">927</span> puntos para conseguir un Vale de Atrápalo!
+        </h3>
+        
+        <div class="vouchers-grid">
+            <!-- Vale $1.000 -->
+            <div class="voucher-card" data-points="927" data-value="1000">
+                <div class="voucher-ribbon">
+                    <span class="ribbon-points"><strong>927</strong></span>
+                    <span class="ribbon-label">puntos</span>
+                    <span class="ribbon-value">$1.000</span>
+                </div>
+                <div class="voucher-content">
+                    <div class="voucher-logo-bg">ATRAPA<br>PUNTOS</div>
+                    <div class="voucher-value">$1.000</div>
+                    <div class="voucher-footer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>EL VALE<br>DE ATRÁPALO</span>
+                    </div>
+                </div>
+                <button class="voucher-btn" data-points="927" data-value="$1.000">Canjear</button>
+            </div>
+
+            <!-- Vale $10.000 -->
+            <div class="voucher-card" data-points="9297" data-value="10000">
+                <div class="voucher-ribbon">
+                    <span class="ribbon-points"><strong>9.297</strong></span>
+                    <span class="ribbon-label">puntos</span>
+                    <span class="ribbon-value">$10.000</span>
+                </div>
+                <div class="voucher-content">
+                    <div class="voucher-logo-bg">ATRAPA<br>PUNTOS</div>
+                    <div class="voucher-value">$10.000</div>
+                    <div class="voucher-footer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>EL VALE<br>DE ATRÁPALO</span>
+                    </div>
+                </div>
+                <button class="voucher-btn" data-points="9297" data-value="$10.000">Canjear</button>
+            </div>
+
+            <!-- Vale $50.000 -->
+            <div class="voucher-card" data-points="46488" data-value="50000">
+                <div class="voucher-ribbon">
+                    <span class="ribbon-points"><strong>46.488</strong></span>
+                    <span class="ribbon-label">puntos</span>
+                    <span class="ribbon-value">$50.000</span>
+                </div>
+                <div class="voucher-content">
+                    <div class="voucher-logo-bg">ATRAPA<br>PUNTOS</div>
+                    <div class="voucher-value">$50.000</div>
+                    <div class="voucher-footer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>EL VALE<br>DE ATRÁPALO</span>
+                    </div>
+                </div>
+                <button class="voucher-btn" data-points="46488" data-value="$50.000">Canjear</button>
+            </div>
+
+            <!-- Vale $100.000 -->
+            <div class="voucher-card" data-points="92976" data-value="100000">
+                <div class="voucher-ribbon">
+                    <span class="ribbon-points"><strong>92.976</strong></span>
+                    <span class="ribbon-label">puntos</span>
+                    <span class="ribbon-value">$100.000</span>
+                </div>
+                <div class="voucher-content">
+                    <div class="voucher-logo-bg">ATRAPA<br>PUNTOS</div>
+                    <div class="voucher-value">$100.000</div>
+                    <div class="voucher-footer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>EL VALE<br>DE ATRÁPALO</span>
+                    </div>
+                </div>
+                <button class="voucher-btn" data-points="92976" data-value="$100.000">Canjear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ESTABLECER LÍMITES -->
+    <div id="limits-modal" class="limits-modal" style="display: none;">
+        <div class="limits-modal-content">
+            <div class="limits-modal-header">
+                <h3>Establecer Límites de Juego</h3>
+                <button class="close-modal" id="close-limits-modal">&times;</button>
+            </div>
+            
+            <div class="limits-modal-body">
+                <p class="modal-description">
+                    Establecer límites te ayuda a mantener un juego saludable y responsable. 
+                    Elige el período y la cantidad de puntos máxima que deseas jugar.
+                </p>
+                
+                <div class="limit-input-group">
+                    <label for="limit-period">Período</label>
+                    <select id="limit-period" class="limit-select">
+                        <option value="daily">Diario</option>
+                        <option value="weekly" selected>Semanal</option>
+                        <option value="monthly">Mensual</option>
+                    </select>
+                </div>
+                
+                <div class="limit-input-group">
+                    <label for="limit-value">Límite de puntos</label>
+                    <input type="number" id="limit-value" class="limit-input" placeholder="Ej: 1000" min="0" step="100">
+                    <span class="input-hint">Puntos máximos por <span id="period-hint">semana</span></span>
+                </div>
+                
+                <div class="warning-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Al alcanzar el 90% de tu límite, te notificaremos. Al llegar al 100%, no podrás seguir jugando hasta el siguiente período.</span>
+                </div>
+            </div>
+            
+            <div class="limits-modal-footer">
+                <button class="btn-cancel" id="cancel-limits">Cancelar</button>
+                <button class="btn-save-limits" id="save-limits">Guardar Límite</button>
+            </div>
+        </div>
+    </div>
+
+</main>

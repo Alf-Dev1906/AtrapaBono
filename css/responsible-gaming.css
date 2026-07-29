@@ -1,0 +1,492 @@
+/* ===== SECCIÓN JUEGO RESPONSABLE ===== */
+
+.responsible-gaming-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+  border: 2px solid #dc2626;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
+}
+
+.responsible-gaming-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #fee2e2;
+}
+
+.responsible-gaming-header .shield-icon {
+  stroke: #dc2626;
+  flex-shrink: 0;
+}
+
+.responsible-gaming-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.limits-info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+}
+
+/* Points Terms Card */
+.points-terms-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.points-intro {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.terms-subtitle {
+  font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.points-rules {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-rules li {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+  padding-left: 24px;
+  position: relative;
+}
+
+.points-rules li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #fdbe02;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.points-rules li strong {
+  color: #333;
+  font-weight: 700;
+}
+
+/* Gráfico de puntos */
+.limits-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chart-header h4 {
+  font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+.chart-period {
+  font-size: 14px;
+  color: #666;
+  background: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#points-chart {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot.current {
+  background: #16a34a;
+}
+
+.legend-dot.limit {
+  background: #dc2626;
+}
+
+/* Controles de límites */
+.limits-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.current-limit-display {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #dc2626;
+}
+
+.limit-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.limit-status svg {
+  stroke: #dc2626;
+  flex-shrink: 0;
+}
+
+.limit-details {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 10px;
+}
+
+.limit-value {
+  color: #dc2626;
+}
+
+.btn-set-limits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-set-limits:hover {
+  background: #b91c1c;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-set-limits svg {
+  flex-shrink: 0;
+}
+
+.responsible-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  background: #fef3c7;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.responsible-message svg {
+  stroke: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Modal de límites */
+.limits-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.limits-modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.limits-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.limits-modal-header h3 {
+  font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #999;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  background: #f3f4f6;
+  color: #333;
+}
+
+.limits-modal-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.limit-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.limit-input-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.limit-select,
+.limit-input {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.limit-select:focus,
+.limit-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.input-hint {
+  font-size: 12px;
+  color: #999;
+}
+
+.warning-box {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+
+.warning-box svg {
+  stroke: #dc2626;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warning-box span {
+  font-size: 13px;
+  color: #991b1b;
+  line-height: 1.5;
+}
+
+.limits-modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 24px 30px;
+  border-top: 2px solid #f3f4f6;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 14px 20px;
+  background: #f3f4f6;
+  color: #666;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #e5e7eb;
+  color: #333;
+}
+
+.btn-save-limits {
+  flex: 1;
+  padding: 14px 20px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-save-limits:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .limits-info-card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsible-gaming-section {
+    padding: 25px 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .responsible-gaming-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .limits-info-card {
+    padding: 20px;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .limits-modal-content {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .limits-modal-header,
+  .limits-modal-body,
+  .limits-modal-footer {
+    padding: 20px;
+  }
+
+  .limits-modal-header h3 {
+    font-size: 20px;
+  }
+
+  .chart-legend {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

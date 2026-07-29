@@ -1,0 +1,2840 @@
+como ========================================================== -->
+<!-- VISTA DE LANDING PAGE (PÚBLICA) UNIFICADA -->
+<!-- ========================================================== -->
+
+<!-- HEADER UNIFICADO Y REORDENADO -->
+<header class="main-header" id="mainHeader">
+  <div class="container header-content">
+    <h1 class="logo" id="mainLogo" style="cursor: pointer;">
+      <img class="logo-img logo-default" alt="Atrapabono" src="assets/img/logos/LOGOTIPO_paraheader.png" />
+      <img class="logo-img logo-scrolled" alt="Atrapabono" src="assets/img/logos/LOGOTIPO_para-fondoblanco.png" />
+      <span class="logo-colored" aria-hidden="true"></span>
+    </h1>
+
+    <nav class="main-nav">
+      <a href="#registro" class="nav-link">Registro</a>
+      <a href="#beneficios" class="nav-link">Beneficios</a>
+      <a href="#soporte" class="nav-link">Soporte</a>
+      <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+      <a href="#confianza" class="nav-link">Confianza y Legalidad</a>
+      <a href="#testimonios" class="nav-link">Testimonios</a>
+      <a href="#dudas" class="nav-link">¿Tenés dudas?</a>
+      <button id="switch-to-login" class="cta-button small secondary">
+        Iniciar Sesión
+      </button>
+    </nav>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menú especial para 1200x800 -->
+    <div class="custom-dropdown-1200" id="customDropdown1200" style="display: none;">
+      <a href="#registro" class="custom-nav-link">Registro</a>
+      <a href="#beneficios" class="custom-nav-link">Beneficios</a>
+      <a href="#soporte" class="custom-nav-link">Soporte</a>
+      <a href="#como-funciona" class="custom-nav-link">Cómo funciona</a>
+      <a href="#confianza" class="custom-nav-link">Confianza y Legalidad</a>
+      <a href="#testimonios" class="custom-nav-link">Testimonios</a>
+      <a href="#dudas" class="custom-nav-link">¿Tenés dudas?</a>
+      <button id="customLoginBtn" class="custom-cta-button">Iniciar Sesión</button>
+    </div>
+  </div>
+</header>
+<style>
+  /* Navbar: no tocar logo principal; mostrar uno u otro según scroll */
+  .main-header .logo-default {
+    display: inline-block;
+  }
+
+  .main-header .logo-scrolled {
+    display: none;
+  }
+
+  .main-header.scrolled .logo-default {
+    display: none;
+  }
+
+  .main-header.scrolled .logo-scrolled {
+    display: inline-block;
+  }
+
+  .main-header .logo-colored {
+    display: none;
+    background-color: #fdbe02;
+    vertical-align: middle;
+    -webkit-mask: url('assets/img/logos/negativo-02.svg?v=20251029-3') left center / contain no-repeat;
+    mask: url('assets/img/logos/negativo-02.svg?v=20251029-3') left center / contain no-repeat;
+  }
+
+  .main-header.scrolled .logo .logo-colored {
+    display: none;
+    transform: none;
+    transform-origin: left center;
+    position: relative;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .main-header.scrolled .logo .logo-colored::after {
+    content: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 8px;
+    background: #ffffff;
+    pointer-events: none;
+  }
+
+  @media (max-width: 1200px) {
+    .main-header.scrolled .logo .logo-colored {
+      transform: none;
+    }
+
+    .main-header.scrolled .logo .logo-colored::after {
+      width: 7px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .main-header.scrolled .logo .logo-colored {
+      transform: none;
+    }
+
+    .main-header.scrolled .logo .logo-colored::after {
+      width: 6px;
+    }
+  }
+</style>
+<style>
+  /* TRANSICIONES DEL HEADER - FORZADAS */
+  .main-header {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .main-header.scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  .main-header .logo,
+  .main-header .nav-link {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  /* FORZAR SOMBRAS EN DESKTOP */
+  @media (min-width: 769px) {
+    .main-header {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .main-header.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+
+  /* FORZAR SOMBRAS EN DESKTOP GRANDE */
+  @media (min-width: 1200px) {
+    .main-header {
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+      position: fixed !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+    }
+
+    .main-header.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+      position: fixed !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+    }
+  }
+
+  /* ESTILOS ADICIONALES PARA ASEGURAR VISIBILIDAD */
+  .main-header {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+</style>
+<style>
+  /* Header layout y menú móvil - CORREGIDO */
+  .main-header .container.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    position: relative;
+  }
+
+  .main-header .main-nav {
+    order: 2;
+    /* Nav en el medio */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: -30px;
+    flex-wrap: nowrap;
+  }
+
+  .main-header .logo {
+    order: 1;
+    /* Logo primero */
+    position: relative;
+    left: 3px;
+    top: -10px;
+  }
+
+  /* Menú hamburguesa - posición por defecto */
+  .mobile-menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+
+  /* Regla global: Ocultar hamburguesa por defecto en todas las pantallas */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  /* Media queries específicos para móviles y tablets */
+  @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      display: inline-flex !important;
+    }
+
+    .main-nav {
+      position: fixed;
+      top: 64px;
+      right: 16px;
+      left: 16px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      padding: 12px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 999;
+    }
+
+    .main-header.nav-open .main-nav {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Ocultar todos los links inline en móvil */
+    .main-header .main-nav .nav-link,
+    .main-header .main-nav .cta-button {
+      display: none !important;
+    }
+
+    /* Mostrar links y botón cuando el menú está abierto */
+    .main-header.nav-open .main-nav .nav-link,
+    .main-header.nav-open .main-nav .cta-button {
+      display: flex !important;
+      width: 100%;
+    }
+  }
+
+  /* Tablet y desktop pequeño: mostrar todos los elementos inline */
+  @media (min-width: 769px) and (max-width: 1300px) {
+    .mobile-menu-toggle {
+      display: none !important;
+    }
+
+    .main-header .main-nav {
+      flex-wrap: nowrap !important;
+      order: 2 !important;
+      gap: 10px !important;
+      margin-left: -50px !important;
+    }
+
+    .main-header .main-nav .nav-link {
+      display: inline-block !important;
+      font-size: 13px !important;
+      padding: 8px 6px !important;
+    }
+
+    .main-header .main-nav .cta-button {
+      order: 10 !important;
+      /* Botón antes que hamburguesa */
+      margin-left: 8px !important;
+      display: inline-flex !important;
+      font-size: 13px !important;
+    }
+  }
+
+  /* Para pantallas grandes: mostrar todos los elementos */
+  @media (min-width: 1201px) {
+    .mobile-menu-toggle {
+      display: none !important;
+    }
+
+    .main-header .main-nav {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      gap: 14px !important;
+      margin-left: -40px !important;
+    }
+
+    .main-header .main-nav .nav-link {
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      font-size: 14px !important;
+      padding: 8px 8px !important;
+    }
+
+    .main-header .main-nav .cta-button {
+      order: 10 !important;
+      margin-left: 8px !important;
+      display: inline-flex !important;
+    }
+  }
+
+  /* Regla de emergencia para forzar orden correcto - solo en tablet/desktop */
+  @media (min-width: 769px) {
+    .main-header .container.header-content {
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* Ocultar menú hamburguesa en pantallas grandes */
+    .mobile-menu-toggle {
+      display: none !important;
+    }
+
+    .main-header .main-nav .cta-button {
+      order: 10 !important;
+      flex-shrink: 0 !important;
+      margin-left: 8px !important;
+    }
+
+    .main-header .main-nav .nav-link {
+      order: 1 !important;
+    }
+  }
+
+  /* Asegurar que en móvil mantenga posición absoluta */
+  @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      position: absolute !important;
+      right: 20px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      order: initial !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Regla específica para PC: forzar mostrar TODOS los nav-links con más espacio */
+  @media (min-width: 1400px) {
+    .main-header .main-nav {
+      gap: 16px !important;
+      margin-left: -20px !important;
+    }
+
+    .main-header .main-nav .nav-link {
+      font-size: 15px !important;
+      padding: 8px 10px !important;
+    }
+
+    .main-header .main-nav a[href="#testimonios"],
+    .main-header .main-nav a[href="#dudas"] {
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+
+  /* REGLA FINAL: Ocultar menú hamburguesa en cualquier pantalla mayor a 768px */
+  @media (min-width: 769px) {
+
+    .main-header .mobile-menu-toggle,
+    #mobileMenuToggle,
+    button.mobile-menu-toggle {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  }
+
+  /* Redistribuir espacio para 1200x800 - Texto muy compacto, carrusel dominante */
+  @media (min-width: 1150px) and (max-width: 1250px) and (min-height: 750px) and (max-height: 850px) {
+    .hero-section .hero-content {
+      grid-template-columns: 0.4fr 1.6fr !important;
+      gap: 10px !important;
+      align-items: center !important;
+    }
+
+    .hero-section .text-content {
+      max-width: 90% !important;
+      padding-right: 5px !important;
+    }
+
+    .hero-text-container {
+      padding: 0 !important;
+    }
+
+    .hero-main-title {
+      font-size: 1.8rem !important;
+      line-height: 1.05 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem !important;
+      line-height: 1.25 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .text-separator {
+      margin: 6px 0 !important;
+    }
+
+    .hero-section .image-content {
+      margin-left: 0 !important;
+    }
+
+    .hero-image-container {
+      width: 100% !important;
+      margin: 0 auto !important;
+      max-width: 480px !important;
+      height: 380px !important;
+    }
+
+    .banner-slide {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+    }
+  }
+
+  /* Solución LIMPIA para 1200x800 - DESHABILITADO - Solo mostrar hamburguesa en móvil */
+  /* @media (min-width: 1150px) and (max-width: 1250px) and (min-height: 750px) and (max-height: 850px) {
+    .mobile-menu-toggle {
+      display: flex !important;
+      position: absolute !important;
+      right: 20px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      z-index: 1001 !important;
+    }
+    
+    .main-nav {
+      display: none !important;
+    }
+    
+    .custom-dropdown-1200 {
+      position: fixed;
+      top: 70px;
+      left: 16px;
+      right: 16px;
+      background: #ffffff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      padding: 20px;
+      z-index: 999;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .main-header.nav-open .custom-dropdown-1200 {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      display: flex !important;
+    }
+    
+    .custom-nav-link {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin: 0;
+      text-align: center;
+      color: #333;
+      font-size: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .custom-nav-link:hover {
+      background-color: #f5f5f5;
+      text-decoration: none;
+    }
+    
+    .custom-cta-button {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin: 8px 0 0 0;
+      text-align: center;
+      background: #fdbe02;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .custom-cta-button:hover {
+      background: #e6a802;
+    }
+  } */
+
+  /* Fix ESPECÍFICO para 1440x900 - Override del media query 1400px+ */
+  @media (min-width: 1440px) and (max-width: 1440px) {
+
+    /* OVERRIDE con máxima especificidad - Nav-links con barra */
+    .main-header .main-nav .nav-link,
+    .main-header .main-nav a.nav-link {
+      position: relative !important;
+      transition: color 0.3s ease !important;
+      display: inline-block !important;
+      padding-bottom: 8px !important;
+    }
+
+    /* Barra indicadora - MÁXIMA especificidad */
+    .main-header .main-nav .nav-link::after,
+    .main-header .main-nav a.nav-link::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 0 !important;
+      height: 2px !important;
+      background-color: #fdbe02 !important;
+      transition: width 0.3s ease !important;
+      z-index: 1 !important;
+      display: block !important;
+    }
+
+    /* Barra indicadora en hover - MÁXIMA especificidad */
+    .main-header .main-nav .nav-link:hover::after,
+    .main-header .main-nav a.nav-link:hover::after {
+      width: 100% !important;
+    }
+
+    /* Barra indicadora para sección activa - MÁXIMA especificidad */
+    .main-header .main-nav .nav-link.active::after,
+    .main-header .main-nav a.nav-link.active::after {
+      width: 100% !important;
+    }
+
+    /* Colores según estado del header */
+    .main-header:not(.scrolled) .main-nav .nav-link:hover {
+      color: #ffffff !important;
+    }
+
+    .main-header:not(.scrolled) .main-nav .nav-link::after {
+      background-color: #ffffff !important;
+    }
+
+    .main-header:not(.scrolled) .main-nav .nav-link.active::after {
+      background-color: #ffffff !important;
+    }
+
+    .main-header.scrolled .main-nav .nav-link:hover {
+      color: #fdbe02 !important;
+    }
+
+    .main-header.scrolled .main-nav .nav-link::after {
+      background-color: #fdbe02 !important;
+    }
+
+    .main-header.scrolled .main-nav .nav-link.active::after {
+      background-color: #fdbe02 !important;
+    }
+
+    /* ELIMINAR completamente efectos hover del header */
+    .main-header,
+    .main-header .container,
+    .main-header .header-content,
+    .main-header .main-nav {
+      transition: none !important;
+      transform: none !important;
+    }
+
+    /* Bloquear TODOS los hover effects del header completo */
+    .main-header:hover,
+    .main-header .container:hover,
+    .main-header .header-content:hover,
+    .main-header .main-nav:hover {
+      transform: none !important;
+      background-color: #fdbe02 !important;
+      opacity: 1 !important;
+      color: initial !important;
+    }
+
+    /* Header blanco - mantener fondo blanco */
+    .main-header.scrolled:hover,
+    .main-header.scrolled .container:hover,
+    .main-header.scrolled .header-content:hover {
+      background-color: #ffffff !important;
+      opacity: 1 !important;
+    }
+
+    /* Eliminar pseudoelementos problemáticos - TODOS los estados */
+    .main-header::before,
+    .main-header::after,
+    .main-header.scrolled::before,
+    .main-header.scrolled::after,
+    .main-header .container::before,
+    .main-header .container::after,
+    .main-header.scrolled .container::before,
+    .main-header.scrolled .container::after,
+    .main-header .header-content::before,
+    .main-header .header-content::after,
+    .main-header.scrolled .header-content::before,
+    .main-header.scrolled .header-content::after {
+      content: none !important;
+      display: none !important;
+      background: transparent !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* Eliminar hover de pseudoelementos - TODOS los estados */
+    .main-header:hover::before,
+    .main-header:hover::after,
+    .main-header.scrolled:hover::before,
+    .main-header.scrolled:hover::after,
+    .main-header .container:hover::before,
+    .main-header .container:hover::after,
+    .main-header.scrolled .container:hover::before,
+    .main-header.scrolled .container:hover::after {
+      content: none !important;
+      display: none !important;
+      background: transparent !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* Eliminar cualquier barra o border problemático */
+    .main-header,
+    .main-header.scrolled {
+      border: none !important;
+      border-bottom: none !important;
+      border-top: none !important;
+    }
+
+    .main-header::before,
+    .main-header::after,
+    .main-header.scrolled::before,
+    .main-header.scrolled::after {
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* FUERZA BRUTA - Ocultar TODO lo que pueda ser una barra */
+    .main-header * {
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+
+    .main-header.scrolled * {
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Ocultar elementos HR o separadores */
+    .main-header hr,
+    .main-header.scrolled hr,
+    .main-header .separator,
+    .main-header.scrolled .separator {
+      display: none !important;
+    }
+
+    /* ELIMINAR el box-shadow que causa la barra */
+    .main-header.scrolled {
+      box-shadow: none !important;
+    }
+
+    /* OVERRIDE NUCLEAR - Eliminar TODO lo que pueda causar una barra */
+    .main-header.scrolled,
+    .main-header.scrolled *,
+    .main-header.scrolled .container,
+    .main-header.scrolled .header-content,
+    .main-header.scrolled .main-nav {
+      border: none !important;
+      border-bottom: none !important;
+      border-top: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      background-image: none !important;
+    }
+
+    /* ELIMINAR la barra naranja de hover en el nav completo */
+    .main-header.scrolled .main-nav::before,
+    .main-header.scrolled .main-nav::after {
+      display: none !important;
+      content: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
+    }
+
+    /* ELIMINAR hover del contenedor nav que causa la barra */
+    .main-header.scrolled .main-nav:hover::before,
+    .main-header.scrolled .main-nav:hover::after {
+      display: none !important;
+      content: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
+      border-bottom: none !important;
+    }
+
+    /* ANULAR cualquier hover effect del nav completo */
+    .main-header.scrolled .main-nav:hover {
+      background: transparent !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    /* Forzar fondo blanco limpio */
+    .main-header.scrolled {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
+    }
+  }
+</style>
+
+<script>
+  // JavaScript para manejar el menú custom en 1200x800
+  (function () {
+    function isResolution1200x800() {
+      return window.innerWidth >= 1150 && window.innerWidth <= 1250 &&
+        window.innerHeight >= 750 && window.innerHeight <= 850;
+    }
+
+    function handleCustomMenu() {
+      const customDropdown = document.getElementById('customDropdown1200');
+      const customLoginBtn = document.getElementById('customLoginBtn');
+
+      if (!customDropdown || !customLoginBtn) return;
+
+      if (isResolution1200x800()) {
+        customDropdown.style.display = 'flex';
+
+        // Agregar funcionalidad al botón de login personalizado
+        customLoginBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          navigate('login');
+        });
+
+        // Agregar funcionalidad a los links personalizados
+        const customLinks = customDropdown.querySelectorAll('.custom-nav-link');
+        customLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('href').substring(1);
+            navigate(sectionId);
+          });
+        });
+      } else {
+        customDropdown.style.display = 'none';
+      }
+    }
+
+    // Ejecutar al cargar y al cambiar tamaño
+    document.addEventListener('DOMContentLoaded', handleCustomMenu);
+    window.addEventListener('resize', handleCustomMenu);
+  })();
+</script>
+
+<!-- 1. SECCIÓN QUIÉNES SOMOS (HOME) -->
+<section id="quienes-somos" class="hero-section">
+  <div class="container hero-content">
+    <div class="text-content">
+      <div class="hero-text-container">
+        <h1 class="hero-main-title">
+          Somos el primer programa de recompensas multioperador legal para jugadores de Casino Online.
+        </h1>
+        <div class="text-separator"></div>
+        <p class="hero-subtitle">
+          No importa dónde jugués: mientras sea en un casino legal asociado, siempre sumás puntos para canjear por
+          experiencias reales.
+        </p>
+      </div>
+    </div>
+    <div class="image-content">
+      <div class="hero-image-container" id="heroBanner">
+        <div class="banner-track" id="heroBannerTrack">
+          <img class="banner-slide" src="assets/img/npc/secundario.png?v=20251103-01" alt="Banner 1" />
+          <img class="banner-slide" src="assets/img/npc/Home_PRINCIPAL.png?v=20251030-01" alt="Banner 2" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SECCIÓN REGISTRO -->
+<section id="registro" class="registration-section">
+  <div class="container">
+    <h2 class="registration-title">Regístrate y empezá a atrapar
+    </h2>
+    <form class="registration-form" id="registrationForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Nombre completo" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" class="form-input" placeholder="Edad" min="18" required>
+        </div>
+        <div class="form-group">
+          <label for="genero">Género</label>
+          <select id="genero" name="genero" class="form-input" required>
+            <option value="" disabled selected hidden>Selecciona tu género</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dni">DNI</label>
+          <input type="text" id="dni" name="dni" class="form-input" placeholder="DNI" required>
+        </div>
+        <div class="form-group">
+          <label for="pais">País</label>
+          <select id="pais" name="pais" class="form-input" required>
+            <option value="" disabled selected hidden>Selecciona tu país</option>
+            <option value="argentina">Argentina</option>
+            <option value="chile">Chile</option>
+            <option value="colombia">Colombia</option>
+            <option value="peru">Perú</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="provincia">Provincia</label>
+          <input type="text" id="provincia" name="provincia" class="form-input" placeholder="Provincia" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Número de contacto</label>
+          <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="Número de contacto" required>
+        </div>
+      </div>
+      <div class="form-actions-row">
+        <div class="form-button-container">
+          <button type="submit" class="activate-button">ACTIVAR CUENTA</button>
+        </div>
+        <div class="age-warning-text" id="ageWarningText">
+          <span class="warning-icon">🔞</span>
+          <span>Prohibido el registro a menores de 18 años</span>
+        </div>
+      </div>
+      <div class="terms-text">
+        <p>Al pulsar &ldquo;Activar mi cuenta&rdquo; confirmás haber leído y estar de acuerdo con el <a href="#"
+            class="terms-link" id="privacyLink">Aviso de privacidad</a> y <a href="#" class="terms-link"
+            id="termsLink">Tratamiento de datos</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- 3. SECCIÓN BENEFICIOS -->
+<section id="beneficios" class="benefits-redesigned-section">
+  <style>
+    .benefits-redesigned-section {
+      width: 100%;
+      padding: 24px 0;
+      /* aún más compacto sin tocar el carrusel */
+      background-color: #ffffff;
+    }
+
+    .benefits-redesigned-section .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .benefits-header-left {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 12px;
+      /* separación con subtítulos */
+    }
+
+    .benefits-title-main {
+      font-size: 60px;
+      font-weight: 400;
+      color: #333;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .benefits-title-main::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 100%;
+      background-color: #7f00ff;
+      border-radius: 3px;
+    }
+
+    .benefits-content-centered {
+      width: 100%;
+      text-align: center;
+    }
+
+    .benefits-subtitle-large {
+      font-size: 60px;
+      font-weight: 400;
+      color: #fdbe02;
+      margin-bottom: 10px;
+      /* más aire antes del siguiente párrafo */
+      position: relative;
+    }
+
+    .benefits-subtitle-small {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 22px;
+      /* más separación con el carrusel */
+      position: relative;
+      left: 0px;
+      top: -30px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+      background-color: #fdbe02;
+      color: white;
+      border-color: #fdbe02;
+    }
+
+    .carousel-arrow.prev {
+      left: -20px;
+    }
+
+    .carousel-arrow.next {
+      right: -20px;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 6px 10px;
+      /* aún menos padding vertical, mismo tamaño de imágenes */
+      width: 100%;
+      scrollbar-width: none;
+      /* Ocultar scrollbar para Firefox */
+      min-height: 380px;
+      /* altura mínima igual a la tarjeta */
+      border-radius: 15px;
+      border: none;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Ocultar scrollbar */
+    .carousel-item {
+      flex: 0 0 255px;
+      height: 380px;
+      scroll-snap-align: center;
+      border-radius: 15px;
+      box-shadow: none;
+      /* sin sombra, integrado al fondo */
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover {
+      box-shadow: none;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      /* ocupa toda la altura de la tarjeta */
+      object-fit: cover;
+      /* adapta la imagen al contenedor */
+      display: block;
+      transition: transform 0.3s ease;
+      border-radius: 15px;
+      transform-origin: center;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    /* Escalar solo la imagen en hover para preservar el borde redondeado */
+    .carousel-item:hover img {
+      transform: translateZ(0) scale(1.02);
+    }
+
+    .benefits-final-text {
+      font-size: 60px;
+      font-weight: 400;
+      color: #fdbe02;
+      margin-top: 52px;
+      /* separación de 52px del contenedor de imágenes */
+      position: relative;
+      left: 0px;
+      top: 0px;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-item {
+        flex: 0 0 200px;
+      }
+
+      /* -15% adicional de 212px */
+      .carousel-container {
+        min-height: 380px;
+      }
+
+      .benefits-title-main {
+        font-size: 60px;
+        font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+
+      .benefits-subtitle-large {
+        font-size: 48px;
+        margin-bottom: 8px;
+        font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+
+      .benefits-subtitle-small {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+      }
+
+      .benefits-final-text {
+        font-size: 48px;
+        margin-top: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .benefits-title-main {
+        font-size: 40px;
+      }
+
+      .benefits-subtitle-large {
+        font-size: 36px;
+      }
+
+      .benefits-final-text {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <div class="container">
+    <div class="benefits-header-left">
+      <h2 class="benefits-title-main">Beneficios</h2>
+    </div>
+    <div class="benefits-content-centered">
+      <p class="benefits-subtitle-large">Para jugadores que no atrapan humo</p>
+      <p class="benefits-subtitle-small">Con AtrapaBono, tus puntos se convierten en:</p>
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow prev" id="carousel-prev" aria-label="Anterior"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg></button>
+        <div class="carousel-container" id="benefits-carousel">
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_01.png" alt="Beneficio 1"></div>
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_02.png" alt="Beneficio 2"></div>
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_03.png" alt="Beneficio 3"></div>
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_04.png" alt="Beneficio 4"></div>
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_05.png" alt="Beneficio 5"></div>
+          <div class="carousel-item"><img src="assets/img/npc/carrusel_06.png" alt="Beneficio 6"></div>
+        </div>
+        <button class="carousel-arrow next" id="carousel-next" aria-label="Siguiente"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg></button>
+      </div>
+      <p class="benefits-final-text">Porque si jugás, jugá para atrapar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SECCIÓN SOPORTE (DISEÑO HÍBRIDO) -->
+<section id="soporte" class="soporte-hybrid-section">
+  <style>
+    .soporte-hybrid-section {
+      width: 100%;
+      padding: 50px 0 0;
+      background-color: #ffffff;
+    }
+
+    .soporte-hybrid-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .soporte-title-left {
+      font-size: 50px;
+      font-weight: 200;
+      line-height: 1;
+      color: #333;
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .soporte-title-left::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 100%;
+      background-color: #7f00ff;
+      border-radius: 3px;
+    }
+
+    .soporte-hybrid-content {
+      text-align: center;
+    }
+
+    /* Nuevo layout: texto + imagen */
+    .support-duo {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto 24px auto;
+    }
+
+    .support-text {
+      text-align: left;
+    }
+
+    /* Textos medios (no mango) en #666 y tamaño 18px */
+    .soporte-hybrid-section p,
+    .soporte-hybrid-section li,
+    .soporte-hybrid-section .support-text-box,
+    .soporte-hybrid-section .support-text-box p {
+      color: #666;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .support-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .support-image img {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+    }
+
+    /* Versión no arrastrable: fondo con imagen */
+    .support-image-bg {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 1 / 1;
+      /* icono cuadrado */
+      background-image: url('assets/img/img_ppl/soporte-24-7.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .support-text-box {
+      background: #ffffff;
+      border: 0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: none;
+    }
+
+    .support-image-placeholder {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px;
+      padding: 8px;
+      background: #ffffff;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Botones de contacto */
+    .support-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 22px 0 0 0;
+      /* +25% aprox más espacio hacia el título siguiente */
+    }
+
+    .support-cta-row .cta-button {
+      min-width: 220px;
+      font-weight: 700;
+    }
+
+    .support-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .support-whatsapp:hover {
+      background: #1fb75a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .support-email {
+      background: transparent;
+      color: #fdbe02;
+      border: 2px solid #fdbe02;
+    }
+
+    .support-email:hover {
+      background: #fdbe02;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .support-duo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .support-text {
+        text-align: center;
+      }
+
+      .support-cta-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .support-cta-row .cta-button {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
+    .soporte-main-title-purple {
+      font-size: 50px;
+      line-height: 1;
+      font-weight: 200;
+      color: #fdbe02;
+      /* Color morado */
+      margin-bottom: 15px;
+      font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    .soporte-hybrid-subtitle {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .soporte-hybrid-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 50px auto;
+    }
+
+    .support-cta-row .support-whatsapp {
+      font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    .soporte-hybrid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .soporte-hybrid-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #e9ecef;
+    }
+
+    .soporte-hybrid-card .icon {
+      font-size: 2.5rem;
+      color: #7f00ff;
+      margin-bottom: 15px;
+    }
+
+    .soporte-hybrid-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .soporte-hybrid-card p {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .soporte-title-left {
+        font-size: 48px;
+      }
+
+      .soporte-main-title-purple {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .soporte-title-left {
+        font-size: 40px;
+      }
+
+      .soporte-main-title-purple {
+        font-size: 40px;
+      }
+    }
+  </style>
+  <div class="container">
+    <h2 class="soporte-title-left">Atención al cliente</h2>
+
+    <div class="soporte-hybrid-content">
+      <div class="support-duo">
+        <div class="support-text">
+          <div class="support-text-box">
+            <h3 class="soporte-main-title-purple">Soporte y<br>atención 24/7</h3>
+            <p class="soporte-hybrid-subtitle">Estamos con vos las 24 horas, los 7 días de la semana.</p>
+            <p class="soporte-hybrid-text">Te acompañamos en todo: desde el registro, depósitos y retiros, hasta el
+              canje de tus puntos. Y si surge algún inconveniente con un casino asociado, nuestro equipo de soporte
+              online te respalda siempre.</p>
+          </div>
+        </div>
+        <div class="support-image">
+          <div class="support-image-placeholder">
+            <div class="support-image-bg" role="img" aria-label="Servicio al cliente 24/7"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-cta-row">
+        <a class="cta-button support-whatsapp" href="javascript:void(0)" data-wa-url="https://wa.me/5491112345678"
+          aria-disabled="true">Soporte WhatsApp 24/7</a>
+        <a class="cta-button support-email" href="mailto:soporte@atrapabono.com">E-mail de Soporte</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SECCIÓN VIDEO DOLOR -->
+<section id="video-dolor" class="video-dolor-section">
+  <style>
+    .video-dolor-section {
+      width: 100%;
+      padding: 112px 0 0;
+      /* +25% de espacio desde Soporte hasta el título de Video */
+      background-color: #ffffff;
+    }
+
+    section#video-dolor {
+      margin-top: 0 !important;
+    }
+
+    .video-dolor-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .video-dolor-title {
+      font-size: 60px;
+      font-weight: 400;
+      color: #333;
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .video-dolor-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 100%;
+      background-color: #7f00ff;
+      border-radius: 3px;
+    }
+
+    .video-dolor-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .video-content-centered {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .video-subtitle-large {
+      font-size: 60px;
+      font-weight: 400;
+      color: #fdbe02;
+      margin: 4px 0 6px 0;
+      line-height: 1;
+    }
+
+    .video-subtitle-small {
+      font-size: 20px;
+      color: #666;
+      margin: 0 0 14px 0;
+    }
+
+    .video-dolor-content video {
+      width: 90%;
+      display: block;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      max-height: 62vh;
+      border-radius: 15px;
+      overflow: hidden;
+      clip-path: inset(0 round 15px);
+      object-fit: cover;
+    }
+
+    .video-dolor-text {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .video-dolor-text-below {
+      font-size: 18px;
+      font-weight: 400;
+      color: #666;
+      margin-top: 30px;
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .video-dolor-title {
+        font-size: 48px;
+      }
+
+      .video-subtitle-large {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-dolor-title {
+        font-size: 40px;
+      }
+
+      .video-subtitle-large {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <div class="container">
+    <div class="video-content-centered">
+      <div class="video-subtitle-large">Si jugás, jugá para atrapar.<br>Y si atrapás… que sea un AtrapaBono</div>
+    </div>
+    <div class="video-dolor-content">
+      <video controls autoplay muted loop>
+        <source src="assets/img/npc/7894619-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+      <p class="video-dolor-text-below">Es hora de que cada jugada valga</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SECCIÓN CÓMO FUNCIONA (REDESIGN) -->
+<section id="como-funciona" class="how-it-works-redesigned-section">
+  <style>
+    .how-it-works-redesigned-section {
+      width: 100%;
+      padding: 50px 0 0;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    /* Anula el margen global entre secciones para esta, evitando sumar más de 90px */
+    section#como-funciona {
+      margin-top: 0 !important;
+    }
+
+    .how-it-works-redesigned-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .how-it-works-title-main {
+      font-size: 50px;
+      font-weight: 200;
+      line-height: 1;
+      color: #fdbe02;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      top: -45px;
+      position: relative;
+      will-change: top, left;
+    }
+
+    .how-it-works-subtitle {
+      font-size: 60px;
+      color: #fdbe02;
+      margin-bottom: 40px;
+      position: relative;
+      left: 0px;
+      top: -40px;
+    }
+
+    .steps-horizontal-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      /* Allow wrapping on smaller screens */
+      justify-content: center;
+      gap: 20px;
+      margin-top: 140px;
+      margin-bottom: 0;
+      /* compacta el espacio bajo tarjetas */
+      overflow: visible;
+      padding: 0 10px;
+    }
+
+    .step-card-horizontal {
+      background-color: transparent;
+      padding: 25px 0 80px 0;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: none;
+      max-width: 340px;
+      flex: 0 0 340px;
+      text-align: center;
+      align-items: center;
+      min-height: 650px;
+    }
+
+    /* Accent line from number outward (top center) */
+    .step-card-horizontal::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 16px;
+      right: 16px;
+      height: 3px;
+      background: #ffa800;
+      border-radius: 8px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+    .step-card-horizontal:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .step-card-horizontal:hover::before {
+      transform: scaleX(1);
+    }
+
+    .step-card-horizontal:hover .step-number-circle {
+      background-color: #ffa800;
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(255, 168, 0, 0.15);
+    }
+
+    .step-number-circle {
+      width: 50px;
+      height: 50px;
+      background-color: #fdbe02;
+      color: white;
+      border-radius: 50%;
+      display: block;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 49px;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .step-card-horizontal h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+      margin-top: 5px;
+      display: none;
+      order: -1;
+      padding: 0 10px;
+      min-height: 110px;
+      line-height: 1.5;
+      height: auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .step-card-horizontal img.step-mobile-img {
+      width: 100%;
+      height: auto;
+      max-width: none;
+      /* sin límite de altura para aprovechar resolución completa */
+      object-fit: contain;
+      object-position: center top;
+      image-rendering: -webkit-optimize-contrast;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0;
+      box-shadow: none;
+      position: relative;
+      z-index: 0;
+      transform: scale(1.15);
+      transform-origin: center center;
+    }
+
+    .step-card-horizontal p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .steps-horizontal-wrapper {
+        margin-top: 0;
+        margin-bottom: 0;
+        /* sin espacio adicional bajo tarjetas en >=768px */
+      }
+
+      /* Fijar ancho estable por tarjeta y permitir altura automática */
+      .step-card-horizontal {
+        flex: 0 0 363px;
+        /* no crece ni encoge; base fija */
+        width: 363px;
+        /* ancho constante */
+        height: auto;
+      }
+    }
+
+    /* Pantallas de 1080px o superiores - aumentar tamaño de tarjetas para mejor aprovechamiento */
+    @media (min-width: 1080px) {
+      .step-card-horizontal {
+        flex: 0 0 420px;
+        width: 420px;
+      }
+
+      .step-card-horizontal img.step-mobile-img {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .steps-horizontal-wrapper {
+        flex-wrap: wrap;
+      }
+
+      .how-it-works-title-main {
+        font-size: 40px;
+      }
+
+      .how-it-works-subtitle {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .how-it-works-title-main {
+        font-size: 36px;
+      }
+
+      .how-it-works-subtitle {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <div class="container">
+    <h2 class="how-it-works-title-main">¿Cómo funciona?</h2>
+
+    <div class="steps-horizontal-wrapper">
+      <div class="step-card-horizontal">
+        <div class="step-number-circle">1</div>
+        <h3>Jugá en tus casinos legales y favoritos a través de nuestro código de afiliado.</h3>
+        <img src="assets/img/img_ppl/paso%201.png" alt="Paso 1" class="step-mobile-img" loading="lazy"
+          onerror="this.onerror=null; this.src='https://picsum.photos/350/550?random=1';">
+        <p>Por cada CashBack, recibís puntos por registro, depósito y cashback canjeables y acumulables que podés
+          utilizar en el Casino que vos quieras o en nuestra plataforma de beneficios.</p>
+      </div>
+      <div class="step-card-horizontal">
+        <div class="step-number-circle">2</div>
+        <h3>Sumá puntos automáticamente.</h3>
+        <img src="assets/img/img_ppl/paso%202.png" alt="Paso 2" class="step-mobile-img" loading="lazy"
+          onerror="this.onerror=null; this.src='https://picsum.photos/350/550?random=2';">
+        <p>Tus puntos se acumulan en tiempo real en tu panel personal. ¡Cada jugada te acerca a recompensas increíbles!
+        </p>
+      </div>
+      <div class="step-card-horizontal">
+        <div class="step-number-circle">3</div>
+        <h3>Canjealos por recompensas reales.</h3>
+        <img src="assets/img/img_ppl/paso%203.png" alt="Paso 3" class="step-mobile-img" loading="lazy"
+          onerror="this.onerror=null; this.src='https://picsum.photos/350/550?random=3';">
+        <p>Convierte tus puntos en dinero real para tu billetera de casino, experiencias VIP, productos exclusivos o
+          gift cards de tus marcas preferidas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SECCIÓN CONFIANZA Y LEGALIDAD -->
+<section id="confianza" class="confianza-hero">
+  <style>
+    /* Fondo limpio sin cuadricula */
+    #confianza,
+    #confianza.confianza-hero {
+      background: #ffffff !important;
+      background-image: none !important;
+    }
+
+    #confianza.confianza-hero {
+      margin-top: 60px;
+    }
+
+    #confianza.confianza-hero::before {
+      content: none !important;
+    }
+
+    #confianza .main-description,
+    #confianza .legal-text {
+      color: inherit;
+    }
+
+    /* Títulos y subtítulos como en otras secciones */
+    #confianza .main-claim {
+      font-size: 45px;
+      font-weight: 400;
+      color: #fdbe02;
+      line-height: 1;
+      text-align: center;
+      margin: 8px 0 10px;
+    }
+
+    #confianza .highlight-purple {
+      color: inherit !important;
+    }
+
+    #confianza .main-claim .highlight-purple {
+      color: inherit !important;
+    }
+
+    #confianza .main-description {
+      font-size: 18px;
+      color: #666;
+      text-align: center;
+      margin: 0 0 4px;
+    }
+
+    #confianza .main-description .highlight-purple {
+      color: inherit !important;
+    }
+
+    #confianza .legal-text {
+      font-size: 18px;
+      text-align: center;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    #confianza .legal-text .highlight-purple {
+      color: #fdbe02 !important;
+    }
+
+    #confianza .operators-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 12px 0;
+      background: #ffffff;
+      box-shadow: none;
+      border: 0;
+    }
+
+    #confianza .operator-logo {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: 0 !important;
+      padding: 0 !important;
+    }
+
+    #confianza .operator-img {
+      height: 72px;
+      width: auto;
+      display: block;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Próximamente... solo texto, sin contenedor de color */
+    #confianza .coming-soon {
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    #confianza .coming-soon .coming-text {
+      font-size: 1.1rem;
+      color: #333;
+      font-style: italic;
+      position: relative;
+      left: 36px;
+      top: 2px;
+    }
+
+    #confianza .coming-soon .coming-text .soon {
+      font-weight: 400;
+    }
+
+    #confianza .coming-soon .coming-text .city {
+      font-weight: 800;
+    }
+
+    /* Título de seguridad como los otros (morado y grande) */
+    #confianza .security-title {
+      font-size: 50px;
+      font-weight: 200;
+      color: #fdbe02 !important;
+      -webkit-text-fill-color: #fdbe02 !important;
+      background: none !important;
+      background-clip: initial !important;
+      -webkit-background-clip: initial !important;
+      text-align: center;
+      margin: 16px 0 20px;
+    }
+
+    /* Contador en UNA FILA (scroll horizontal en móviles) */
+    #confianza .stats-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 36px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      margin-bottom: 16px;
+    }
+
+    #confianza .stats-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    #confianza .stat-item {
+      flex: 0 0 auto;
+      min-width: 140px;
+      text-align: center;
+    }
+
+    #confianza .stat-icon {
+      color: #ff4d6d;
+      font-size: 30px;
+      line-height: 1;
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      -webkit-user-drag: none;
+      user-select: none;
+      image-rendering: crisp-edges;
+      margin-bottom: 6px;
+    }
+
+    #confianza .stat-number {
+      font-size: 45px;
+      font-weight: 700;
+      color: #111;
+      font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    #confianza .stat-label {
+      color: #64748B;
+    }
+
+    @media (max-width: 768px) {
+      #confianza .operator-img {
+        height: 56px;
+      }
+    }
+
+    /* Mapeo de iconos como background para evitar arrastre */
+    #confianza .icon-usuarios {
+      background-image: url('assets/img/iconos/usuarios.png');
+    }
+
+    #confianza .icon-costo {
+      background-image: url('assets/img/iconos/costo-mensual.png');
+    }
+
+    #confianza .icon-bonos {
+      background-image: url('assets/img/iconos/bonos-atrapados.png');
+    }
+
+    #confianza .icon-soporte {
+      background-image: url('assets/img/iconos/soporte.png');
+    }
+
+    #confianza .icon-nacimos {
+      background-image: url('assets/img/iconos/nacimos.png');
+    }
+
+    /* Límites de tiempo: icono + título y botones estilo Mandarina (como Iniciar Sesión) */
+    #confianza .responsible-gaming-icon {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px;
+      image-rendering: crisp-edges;
+      transform: translateY(40px);
+    }
+
+    #confianza .responsible-gaming-title {
+      font-size: 50px;
+      font-weight: 200;
+      color: #fdbe02 !important;
+      -webkit-text-fill-color: #fdbe02 !important;
+      background: none !important;
+      background-clip: initial !important;
+      -webkit-background-clip: initial !important;
+      text-align: center;
+    }
+
+    #confianza .responsible-gaming-section .cta-button.small.secondary,
+    #confianza #safeGamingBtn,
+    #confianza #minorsProtectionBtn {
+      color: #fdbe02 !important;
+      background-color: #ffffff !important;
+      border: 2px solid #fdbe02 !important;
+    }
+
+    #confianza .responsible-gaming-section .cta-button.small.secondary:hover,
+    #confianza .responsible-gaming-section .cta-button.small.secondary:focus,
+    #confianza .responsible-gaming-section .cta-button.small.secondary:active,
+    #confianza #safeGamingBtn:hover,
+    #confianza #safeGamingBtn:focus,
+    #confianza #safeGamingBtn:active,
+    #confianza #minorsProtectionBtn:hover,
+    #confianza #minorsProtectionBtn:focus,
+    #confianza #minorsProtectionBtn:active {
+      background-color: #fdbe02 !important;
+      color: #ffffff !important;
+      border-color: #fdbe02 !important;
+    }
+
+    #confianza .rg-cta-buttons {
+      margin-bottom: 16px;
+    }
+  </style>
+  <div class="container">
+    <div class="confianza-content">
+      <div class="confianza-main">
+        <h1 class="confianza-title">Somos 100% legales y multioperador</h1>
+        <p class="main-description">Tus puntos, tus premios y tu juego están <span class="highlight-purple">resguardados
+            y certificados.</span></p>
+        <div class="legal-info">
+          <p class="legal-text">Operamos con los principales casinos legales del país y<br> promovemos el <span
+              class="highlight-purple">juego responsable +18.</span></p>
+        </div>
+        <div class="operators-section">
+          <div class="operator-logo"><img src="assets/img/logos/bplay_logo.png" alt="Bplay" class="operator-img"></div>
+          <div class="operator-logo"><img src="assets/img/iconos/Easybet_logo2.webp" alt="Easybet" class="operator-img">
+          </div>
+          <div class="coming-soon"><span class="coming-text"><span class="soon">Próximamente</span><br><span
+                class="city">en tu ciudad</span></span></div>
+        </div>
+        <div class="affiliate-button-container">
+          <button class="affiliate-btn">Súmate como afiliado</button>
+        </div>
+        <div class="security-section">
+          <h3 class="security-title">Te damos seguridad y valor real</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-icon icon-usuarios" aria-hidden="true"></span>
+              <div class="stat-number" data-target="900" data-suffix="K">0</div>
+              <div class="stat-label">Usuarios activos</div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon icon-costo" aria-hidden="true"></span>
+              <div class="stat-number" data-target="0" data-suffix="$">0</div>
+              <div class="stat-label">Costo mensual</div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon icon-bonos" aria-hidden="true"></span>
+              <div class="stat-number" data-prefix="+" data-target="500" data-suffix="k">0</div>
+              <div class="stat-label">Bonos atrapados</div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon icon-soporte" aria-hidden="true"></span>
+              <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+              <div class="stat-label">Soporte</div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon icon-nacimos" aria-hidden="true"></span>
+              <div class="stat-number" data-target="2025" data-suffix="">0</div>
+              <div class="stat-label">Nacimos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="responsible-gaming-section" style="margin-top: 0; padding-top: 0;">
+        <div class="container">
+          <div class="responsible-gaming-content">
+            <img src="assets/img/iconos/límites-de-tiempo.png" alt="Límites de tiempo" class="responsible-gaming-icon"
+              loading="lazy">
+            <h2 class="responsible-gaming-title">Límites de tiempo</h2>
+            <div class="responsible-gaming-text">
+              <p>Tenemos para vos herramientas de juego responsable donde podrás solicitar la configuración de tus límites diarios, semanales y mensuales de depósitos. Te avisaremos si necesitás un descanso y estaremos atentos a que no excedas tu juego. En AtrapaBono nos interesa cuidar tu bienestar.</p>
+              <p>En AtrapaBono, creemos que los juegos de azar deben ser puramente divertidos. Queremos que todos
+                nuestros usuarios se diviertan jugando de forma segura. Estamos aquí para asegurarnos de que aproveches
+                al máximo tu tiempo de juego y darte una mano si la necesitas.</p>
+            </div>
+            <div class="rg-cta-buttons"><a href="#" class="cta-button small secondary" id="safeGamingBtn">Promesa de
+                juego más seguro</a><a href="#" class="cta-button small secondary" id="minorsProtectionBtn">Protección
+                de menores</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- 7. SECCIÓN TESTIMONIOS -->
+<section id="testimonios" class="testimonials-section" style="margin-bottom:0 !important;">
+  <style>
+    #testimonios {
+      background: #ffffff;
+      padding: 60px 0;
+    }
+
+    #testimonios::before {
+      content: none !important;
+      display: none !important;
+    }
+
+    #testimonios .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .testimonials-title-top {
+      text-align: center;
+      font-size: 50px !important;
+      font-weight: 200;
+      color: #fdbe02 !important;
+      margin-bottom: 24px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      border: 1px solid #ececec;
+      border-radius: 14px;
+      box-shadow: none;
+      background: #ffffff;
+      transform: translateY(16px);
+      opacity: 0;
+      transition: opacity .45s ease, transform .45s ease;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .testimonial-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .testimonial-image-wrapper {
+      width: 100%;
+      height: 320px;
+      margin: 0;
+      background: #f8f9fa;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonial-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: box-shadow .3s ease, transform .3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .testimonial-image-wrapper:hover img {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      transform: translate(-50%, calc(-50% - 4px));
+    }
+
+    .testimonial-content {
+      width: 100%;
+      padding: 15px 21px 21px 21px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-rating {
+      color: #ffd700;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+      line-height: 1;
+      margin-left: 10px;
+      display: block;
+      margin-top: 22px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #111;
+    }
+
+    .testimonial-author .location {
+      font-weight: 500;
+      color: #64748B;
+      margin-left: 4px;
+    }
+
+    .quote-icon {
+      color: #fdbe02;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin: 16px 0 8px;
+    }
+
+    .testimonial-quote {
+      color: #374151;
+      line-height: 1.5;
+      font-size: 15px;
+      margin: 0 0 14px;
+      min-height: 60px;
+    }
+
+    #testimonios .testimonial-card {
+      box-shadow: none !important;
+      border-color: #ececec;
+    }
+
+    #testimonios .testimonial-card:hover {
+      box-shadow: 0 16px 36px rgba(253, 190, 2, 0.22) !important;
+      border-color: #fdbe02 !important;
+    }
+
+    #testimonios .testimonials-bottom-title {
+      color: #fdbe02 !important;
+      font-size: 40px;
+      line-height: 1.5;
+      text-align: center;
+      margin: 60px 0 90px;
+      position: relative;
+      left: 0px;
+      top: 40px;
+      transition: none;
+      cursor: move;
+      text-align: center;
+    }
+  </style>
+  <div class="container">
+    <h2 class="testimonials-title-top">Jugadores que ya están atrapando sus beneficios</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-image-wrapper">
+          <img src="assets/img/logos/testimonio-Juan.png" alt="Foto de Juan" loading="lazy">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-header">
+            <div class="testimonial-author">Juan <span class="location">Bs. As</span></div>
+          </div>
+          <div class="quote-icon">❝</div>
+          <p class="testimonial-quote">"Por primera vez siento que me premian por jugar".</p>
+          <div class="testimonial-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-image-wrapper">
+          <img src="assets/img/logos/testimonio-flor.png" alt="Foto de Flor" loading="lazy">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-header">
+            <div class="testimonial-author">Flor <span class="location">Córdoba</span></div>
+          </div>
+          <div class="quote-icon">❝</div>
+          <p class="testimonial-quote">"Cajee mis puntos por entradas a un recital. ¡Una locura!"</p>
+          <div class="testimonial-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-image-wrapper">
+          <img src="assets/img/logos/Testimonio-Martin.png" alt="Foto de Martín" loading="lazy">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-header">
+            <div class="testimonial-author">Martín <span class="location">Rosario</span></div>
+          </div>
+          <div class="quote-icon">❝</div>
+          <p class="testimonial-quote">"Con AtrapaBono cada jugada lo veo reflejado en mi billetera."</p>
+          <div class="testimonial-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-image-wrapper">
+          <img src="assets/img/logos/Testimonio-Matias.png" alt="Foto de Matías" loading="lazy">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-header">
+            <div class="testimonial-author">Matías <span class="location">Mendoza</span></div>
+          </div>
+          <div class="quote-icon">❝</div>
+          <p class="testimonial-quote">“Soporte rápido y canje sin problemas.”</p>
+          <div class="testimonial-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-bottom-title">¡Vos también podés atrapar tu recompensa!</div>
+  </div>
+</section>
+
+<!-- 8. SECCIÓN DUDAS (FAQ) -->
+<section id="dudas" class="faq-section"
+  style="--faq-banner-image: url('assets/img/img_ppl/Banner_Preguntas.png'); margin-top:0 !important;">
+  <style>
+    .faq-section {
+      padding: 40px 0 60px;
+      /* compacta: menos espacio arriba y abajo */
+      background: #333333;
+    }
+
+    .faq-section .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .faq-banner {
+      position: relative;
+      width: 1060px;
+      max-width: 100%;
+      height: 150px !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      background: linear-gradient(135deg, #f1f1f1, #e9e9e9);
+      margin: 0 auto 30px auto;
+    }
+
+    .faq-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: var(--faq-banner-image, url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1640&auto=format&fit=crop'));
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 20px;
+    }
+
+    .faq-title-standalone {
+      text-align: center;
+      font-size: 50px;
+      font-weight: 200;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    .faq-title-pill {
+      display: none !important;
+    }
+
+    .faq-title-pill .faq-icon {
+      display: none !important;
+    }
+
+    .faq-title-pill .faq-text {
+      display: none !important;
+    }
+
+    .faq-subtitle {
+      text-align: center;
+      color: #ffffff;
+      margin: 14px 0 26px;
+      font-size: 1.05rem;
+    }
+
+    .faq-accordion {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 0;
+      /* el espacio se maneja con el padding-bottom de la sección */
+    }
+
+    .faq-accordion details {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ececec;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .faq-accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-weight: 600;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .faq-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-accordion summary .chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .faq-accordion details[open] summary .chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-accordion .answer {
+      padding: 0 20px 0 20px;
+      /* sin padding vertical al colapsar */
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    /* Animaciones básicas (complementadas por faq-animations.css) */
+    .faq-accordion details .answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: max-height, opacity, transform;
+      transform: translateY(-10px);
+    }
+
+    .faq-accordion details[open] .answer {
+      max-height: 400px;
+      padding-bottom: 20px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: 40px 0 70px;
+      }
+
+      .faq-banner {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1060 / 150;
+      }
+
+      .faq-title-pill {
+        font-size: 1.2rem;
+        padding: 8px 14px;
+        gap: 6px;
+      }
+    }
+  </style>
+  <div class="container">
+    <div class="faq-banner"></div>
+    <h2 class="faq-title-standalone">¿Tenés dudas?</h2>
+    <p class="faq-subtitle">Aquí te ayudamos a resolverlas.</p>
+
+    <div class="faq-accordion">
+      <details>
+        <summary>¿Cómo funciona el programa de puntos y canjes?<span class="chevron">⌄</span></summary>
+        <div class="answer">Regístrate, jugá en casinos legales con nuestro código de afiliado y acumulá puntos por
+          registro, depósitos y cashback. Luego canjéalos por beneficios, gif cards o saldo en billetera de casino. Todo
+          queda visible en tu panel.
+        </div>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda en reflejarse mi saldo de puntos?<span class="chevron">⌄</span></summary>
+        <div class="answer">La acreditación se actualiza cada 48hrs luego de ser obtenidos. Si ves demoras mayores,
+          escribinos por nuestro canal de soporte para revisar el caso.</div>
+      </details>
+      <details>
+        <summary>¿Puedo usar mis puntos en distintos casinos?<span class="chevron">⌄</span></summary>
+        <div class="answer">Sí. Tus puntos son canjeables en múltiples operadores asociados y también en la plataforma
+          de beneficios. Verás las opciones disponibles al momento del canje.</div>
+      </details>
+      <details>
+        <summary>¿Cómo gano puntos en Atrapabono?<span class="chevron">⌄</span></summary>
+        <div class="answer">
+          <p style="margin-bottom: 10px;">Recordá que los puntos se calculan según tu actividad dentro de la plataforma.</p>
+          <p style="margin-bottom: 8px;"><strong>Asignación de puntos:</strong></p>
+          <ul style="list-style: disc; padding-left: 20px; margin: 0;">
+            <li><strong>Cashback:</strong> por cada $10.000 de cashback obtenido (cada 48 horas), recibís 800 puntos.</li>
+            <li><strong>Primer depósito:</strong> al realizar tu primer depósito, obtenés 300 puntos.</li>
+            <li><strong>Registro:</strong> por registrarte en la plataforma, ganás 300 puntos.</li>
+            <li><strong>Recomendar amigos:</strong> por cada amigo que se registre desde tu enlace, sumás 200 puntos.</li>
+            <li><strong>Actividad mensual:</strong> si permanecés activo durante el mes, se te acreditan 1.000 puntos adicionales.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>¿Qué pasa si olvido mi contraseña o mis datos?<span class="chevron">⌄</span></summary>
+        <div class="answer">Podés recuperar el acceso desde el login con "Olvidé mi contraseña". Si necesitás ayuda
+          adicional, nuestro equipo 24/7 te asiste por WhatsApp o email.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final" class="cta-banner-section" style="margin-top:0 !important;">
+  <style>
+    .cta-banner-section {
+      padding: 80px 0;
+      background: radial-gradient(1200px 500px at -10% -20%, rgba(255, 255, 255, 0.06), transparent),
+        linear-gradient(180deg, #222 0%, #1a1a1a 100%);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .cta-banner-section .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .cta-banner-title {
+      color: #ffffff !important;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin: 0 0 12px 0;
+    }
+
+    .cta-banner-subtitle {
+      color: #d1d5db;
+      font-size: 18px;
+      margin: 0 0 28px 0;
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner-section .cta-button.large {
+      min-width: 220px;
+      border-radius: 12px;
+    }
+
+    .cta-banner-section .cta-button.primary {
+      background: transparent;
+      color: #fdbe02;
+      border: 2px solid #fdbe02;
+    }
+
+    .cta-banner-section .cta-button.primary:hover {
+      background: #fdbe02;
+      color: #ffffff;
+      border-color: #fdbe02;
+    }
+
+    .cta-banner-section .cta-button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    .cta-banner-section .cta-button.secondary:hover {
+      background: #ffffff;
+      color: #1a1a1a;
+      border-color: #ffffff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .cta-banner-section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+  <div class="container">
+    <h2 class="cta-banner-title">¿Listo para comenzar a ganar?</h2>
+    <p class="cta-banner-subtitle">Unite a nuestra comunidad y convertí tus juegos en recompensas reales.</p>
+    <div class="cta-banner-actions">
+      <a href="#registro" class="cta-button large primary">Comenzar Ahora</a>
+      <a href="#beneficios" class="cta-button large secondary">Ver Beneficios</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODALES Y FOOTER -->
+<style>
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .modal-overlay[aria-hidden="false"] {
+    display: flex;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    border-radius: 14px;
+    width: min(800px, 92vw);
+    max-height: 86vh;
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .modal-header.gradient {
+    padding: 14px 18px;
+    background: #ffa800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .modal-close {
+    background: transparent;
+    border: 0;
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .modal-body {
+    padding: 18px;
+    background: #ffffff;
+  }
+
+  .modal-footer {
+    padding: 12px 18px;
+    background: #fafafa;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .modal-footer .cta-button.small.secondary {
+    color: #ffa800;
+    border-color: #ffa800;
+    background: transparent;
+  }
+
+  .modal-footer .cta-button.small.secondary:hover {
+    background: #ffa800;
+    color: #ffffff;
+    text-decoration: none;
+  }
+</style>
+<div class="modal-overlay" id="privacyModal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+    <div class="modal-header gradient">
+      <h3 id="legalModalTitle">Información legal</h3>
+      <button id="modalClose" class="modal-close" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="legalModalContent">
+        <h4>Términos y Condiciones</h4>
+        <p>Este es un texto genérico de términos y condiciones. El uso de la plataforma implica la aceptación de las
+          reglas de uso, límites de edad (+18), buenas prácticas y cumplimiento de la legislación aplicable.</p>
+        <ul>
+          <li>Uso personal y no transferible de la cuenta.</li>
+          <li>Prohibido el uso por menores de 18 años.</li>
+          <li>Nos reservamos el derecho de suspender cuentas ante actividad sospechosa.</li>
+          <li>Las promociones y puntos pueden cambiar previo aviso.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="modalAccept" class="cta-button small secondary">Entendido</button>
+    </div>
+  </div>
+  <!-- Clic fuera del contenido cierra el modal (manejador en JS) -->
+
+
+</div>
+<div class="modal-overlay" id="confirmationModal">...</div>
+<footer id="legal-footer" class="legal-footer">
+  <div class="container">
+    <div class="footer-logos">
+      <div class="footer-logo">
+        <a href="https://www.loteria.gba.gov.ar/index.php" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/footer/logo-loteria.png" alt="Lotería de la Provincia" loading="lazy" />
+        </a>
+        <div class="caption">Lotería de la Provincia</div>
+      </div>
+      <div class="footer-logo">
+        <a href="https://www.facebook.com/JuegoResponsable/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/footer/prevencion-juego.webp" alt="Prevención y Asistencia al Juego Compulsivo"
+            loading="lazy" />
+        </a>
+      </div>
+      <div class="footer-logo">
+        <img src="assets/img/footer/plus18footer.png" alt="+18 Mayores de 18 años" loading="lazy" />
+      </div>
+      <div class="footer-logo">
+        <a href="https://www.loteria.gba.gov.ar/index.php/133-juego-responsable" target="_blank"
+          rel="noopener noreferrer">
+          <img src="assets/img/footer/linea-atencion-pba-1-1.webp" alt="Línea gratuita 0800-444-4000" loading="lazy" />
+        </a>
+      </div>
+      <div class="footer-logo autoexclude-right">
+        <img src="assets/img/footer/logo-autoexclusion-pba-2-1.png" alt="Autoexclusión" loading="lazy" />
+      </div>
+    </div>
+    <hr class="footer-sep" />
+
+    <!-- Logo principal -->
+    <div class="follow-logo-wrap">
+      <img class="follow-logo" src="assets/img/logos/LOGOTIPO_para-footer.png" alt="Atrapabono" loading="lazy" />
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="follow-us-block">
+      <h3 class="follow-title">Seguinos</h3>
+      <p class="follow-subtitle">En nuestras redes sociales y enterate de todas nuestras promociones</p>
+    </div>
+
+    <div class="social-icons-row">
+      <a href="#" class="icon-social" aria-label="Facebook" title="Facebook">
+        <img src="assets/img/iconos/facebook.svg" alt="Facebook" loading="lazy" />
+      </a>
+      <a href="#" class="icon-social" aria-label="X" title="X (Twitter)">
+        <img src="assets/img/iconos/x.svg" alt="X" loading="lazy" />
+      </a>
+      <a href="#" class="icon-social" aria-label="Instagram" title="Instagram">
+        <img src="assets/img/iconos/instagram.svg" alt="Instagram" loading="lazy" />
+      </a>
+      <a href="#" class="icon-social" aria-label="LinkedIn" title="LinkedIn">
+        <img src="assets/img/iconos/linkedin-in-brands-solid-full.svg" alt="LinkedIn" loading="lazy" />
+      </a>
+    </div>
+
+    <!-- Advertencia de salud -->
+    <p class="salud-text">¡El juego compulsivo es perjudicial para la salud!</p>
+
+    <hr class="footer-sep" />
+
+
+    <!-- Sección legal -->
+    <div class="footer-legal">
+      <h4 class="legal-title">Información Legal</h4>
+      <p class="legal-description">Nuestros servicios son proporcionados de manera legal bajo las siguientes
+        condiciones:</p>
+
+      <p class="legal-text">
+        Este sitio web y la marca <strong>AtrapaBono</strong> son administrados por
+        <strong>[Razón Social / Operador]</strong>, autorizado por el
+        <strong>organismo regulador competente</strong> para operar juegos en línea.
+      </p>
+
+      <div class="legal-text">
+        <strong>Restricciones importantes:</strong>
+        <ul>
+          <li>La oferta está limitada al <strong>ámbito geográfico de la jurisdicción habilitada</strong></li>
+          <li><strong>+18 años</strong> - Debés ser mayor de edad para participar</li>
+          <li><strong>Jugá siempre de manera responsable</strong> y dentro de tus posibilidades</li>
+        </ul>
+
+        <strong>Ayuda y orientación:</strong><br>
+        Para obtener ayuda sobre juego responsable, visitá nuestra sección especializada o comunícate
+        a la línea gratuita <a href="https://www.loteria.gba.gov.ar/index.php/133-juego-responsable" target="_blank"
+          rel="noopener noreferrer"><strong>0800-444-4000</strong></a>.
+        Para más información, consultá los enlaces oficiales del regulador.
+      </div>
+
+      <p class="legal-note">
+        <strong>Importante:</strong> Todos los beneficios son otorgados por los casinos asociados.
+        <a href="https://Atrapabono.com" target="_blank" rel="noopener">AtrapaBono.com</a>
+        actúa como operador intermediario para gestionar y procesar tus recompensas.
+      </p>
+    </div>
+
+    <hr class="footer-sep" />
+    <div class="copyright-text">&copy; 2025 Atrapabono.com - Todos los derechos reservados</div>
+  </div>
+</footer>

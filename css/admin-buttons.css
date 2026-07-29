@@ -1,0 +1,204 @@
+/* ===== BOTONES DE ADMINISTRACIÓN MEJORADOS ===== */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos base para botones de acción */
+.btn-success, .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 90px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success:hover, .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-success:active, .btn-danger:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Aprobar - Verde moderno */
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: 1px solid #059669;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-success:active {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+}
+
+/* Botón Rechazar - Rojo moderno */
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: 1px solid #dc2626;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-danger:active {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+}
+
+/* Efecto de ondas al hacer clic */
+.btn-success::before, .btn-danger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-success:active::before, .btn-danger:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Estados de carga */
+.btn-success.loading, .btn-danger.loading {
+    pointer-events: none;
+    opacity: 0.7;
+    position: relative;
+}
+
+.btn-success.loading::after, .btn-danger.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animación de éxito */
+.btn-success.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .btn-success, .btn-danger {
+        width: 100%;
+        min-width: auto;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
+
+/* Estados adicionales */
+.btn-success:disabled, .btn-danger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn-success:focus, .btn-danger:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Mejoras visuales adicionales */
+.btn-success, .btn-danger {
+    font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    letter-spacing: 0.025em;
+}
+
+/* Hover con iconos animados */
+.btn-success:hover {
+    animation: bounceIn 0.3s ease;
+}
+
+.btn-danger:hover {
+    animation: shakeX 0.3s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: translateY(-2px) scale(1); }
+    50% { transform: translateY(-2px) scale(1.02); }
+    100% { transform: translateY(-2px) scale(1); }
+}
+
+@keyframes shakeX {
+    0% { transform: translateY(-2px) translateX(0); }
+    25% { transform: translateY(-2px) translateX(-2px); }
+    75% { transform: translateY(-2px) translateX(2px); }
+    100% { transform: translateY(-2px) translateX(0); }
+}
+
+/* Estilo para tablas admin */
+.transactions-table .btn-success,
+.transactions-table .btn-danger {
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 80px;
+}
+
+/* Contenedor de botones en tablas */
+.transactions-table td .action-buttons {
+    gap: 6px;
+}
+
+/* Mejora para botones pequeños */
+.btn-small {
+    font-size: 11px;
+    padding: 5px 10px;
+    min-width: 70px;
+}

@@ -1,0 +1,157 @@
+<header class="dashboard-header">
+    <div class="container header-content">
+        <h1 class="logo" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; display: flex; align-items: center; gap: 8px;">
+            <img src="assets/img/logos/LOGOTIPO_para-fondoblanco.png" alt="Atrapabono" style="width: 329.69px; height: 178.75px;" />
+        </h1>
+        <nav class="user-nav">
+            <a href="#" id="link-dashboard" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                Volver al dashboard
+            </a>
+            <a href="#" id="link-profile" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Mi Perfil
+            </a>
+            <a href="#" id="link-logout-dashboard" class="btn btn-secondary btn-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                Salir
+            </a>
+        </nav>
+    </div>
+</header>
+
+<main class="dashboard-main container">
+    <div class="payment-data-section">
+        <h2 class="section-title" style="font-family: 'Aristotelica Display Trial', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; text-align: center; font-size: 50px; font-weight: 200; line-height: 1; color: #fdbe02; margin-bottom: 20px; display: block;">¡Canjea tus puntos!</h2>
+        <p class="subtitle" style="font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; color: #666; margin-bottom: 30px; text-align: center; line-height: 1.6;">
+            Ingresá los datos de tu tarjeta para hacer efectivo el canje de tus puntos acumulados
+        </p>
+
+        <div class="payment-form-container">
+            <form id="payment-form" class="payment-form">
+                <!-- Número de tarjeta -->
+                <div class="form-group card-number-group">
+                    <label for="card-number" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                        Número de tarjeta
+                    </label>
+                    <div class="card-input-wrapper">
+                        <input 
+                            type="text" 
+                            id="card-number" 
+                            name="card-number" 
+                            class="form-input card-number-input" 
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                            autocomplete="cc-number"
+                            required
+                        />
+                        <img id="card-brand-icon" class="card-brand-icon" src="" alt="" style="display: none;" />
+                    </div>
+                    <span class="input-hint">Ingresa los 16 dígitos de tu tarjeta</span>
+                </div>
+
+                <!-- Fecha de expiración y CVV -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                            Fecha de expiración
+                        </label>
+                        <input 
+                            type="text" 
+                            id="expiry-date" 
+                            name="expiry-date" 
+                            class="form-input" 
+                            placeholder="MM/AA"
+                            maxlength="5"
+                            autocomplete="cc-exp"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cvv" class="form-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            CVV
+                        </label>
+                        <input 
+                            type="text" 
+                            id="cvv" 
+                            name="cvv" 
+                            class="form-input" 
+                            placeholder="123"
+                            maxlength="4"
+                            autocomplete="cc-csc"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <!-- Nombre completo del titular -->
+                <div class="form-group">
+                    <label for="cardholder-name" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Nombre completo del titular
+                    </label>
+                    <input 
+                        type="text" 
+                        id="cardholder-name" 
+                        name="cardholder-name" 
+                        class="form-input" 
+                        placeholder="Nombre como aparece en la tarjeta"
+                        autocomplete="cc-name"
+                        required
+                    />
+                </div>
+
+                <!-- Dirección de facturación -->
+                <div class="form-group">
+                    <label for="billing-address" class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Dirección de facturación
+                    </label>
+                    <input 
+                        type="text" 
+                        id="billing-address" 
+                        name="billing-address" 
+                        class="form-input" 
+                        placeholder="Calle, número, ciudad, código postal"
+                        autocomplete="street-address"
+                        required
+                    />
+                </div>
+
+                <!-- Botón de envío -->
+                <div style="display: flex !important; justify-content: center !important; width: 100%; margin-top: 10px;">
+                    <button type="submit" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Guardar datos de pago
+                    </button>
+                </div>
+            </form>
+
+            <!-- Métodos de pago aceptados -->
+            <div class="payment-methods">
+                <p class="payment-methods-title">Métodos de pago aceptados:</p>
+                <div class="payment-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="payment-logo" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-logo" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express" class="payment-logo" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal" class="payment-logo" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje de seguridad -->
+        <div class="security-notice">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div>
+                <strong>Transacción segura</strong>
+                <p>Tus datos están protegidos con encriptación SSL de 256 bits</p>
+            </div>
+        </div>
+    </div>
+</main>
